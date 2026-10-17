@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'photo_privacy_page.dart';
 
 import '../nagar_repository.dart';
 import 'private_evidence_preview.dart';
@@ -216,6 +217,7 @@ class _IncidentDetailState extends State<IncidentDetail> {
       photo = await ImagePicker().pickImage(
         source: source,
         maxWidth: 1600,
+        maxHeight: 1600,
         imageQuality: 75,
       );
     } catch (_) {
@@ -234,6 +236,12 @@ class _IncidentDetailState extends State<IncidentDetail> {
       return;
     }
     if (photo == null || !mounted) return;
+    final protectedPath = await reviewProtectedPhoto(
+      context,
+      photo.path,
+      bangla: widget.bangla,
+    );
+    if (protectedPath == null || !mounted) return;
     final note = TextEditingController();
     final accepted = await showDialog<bool>(
       context: context,
@@ -279,7 +287,7 @@ class _IncidentDetailState extends State<IncidentDetail> {
         final sent = await widget.repository.submitTaskEvidence(
           taskId: taskId,
           note: note.text,
-          imagePath: photo.path,
+          imagePath: protectedPath,
         );
         if (sent) {
           _reload();

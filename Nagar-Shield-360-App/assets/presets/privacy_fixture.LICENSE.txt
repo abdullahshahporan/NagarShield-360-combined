@@ -1,0 +1,3 @@
+Privacy test fixture: Grace Hopper portrait, a work of the United States Navy and in the public domain in the United States.
+Source: https://storage.googleapis.com/download.tensorflow.org/example_images/grace_hopper.jpg
+A synthetic TEST CONTACT line was added for local OCR testing. It is not a real contact.

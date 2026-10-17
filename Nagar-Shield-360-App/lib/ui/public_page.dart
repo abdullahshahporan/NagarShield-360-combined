@@ -10,6 +10,7 @@ import '../app_config.dart';
 import '../nagar_repository.dart';
 import 'notice.dart';
 import 'public_status_card.dart';
+import 'photo_privacy_page.dart';
 
 class PublicPage extends StatefulWidget {
   const PublicPage({
@@ -37,6 +38,8 @@ class _PublicPageState extends State<PublicPage> {
   final selected = <String>{};
   String precision = 'approximate';
   String? imagePath;
+  bool imageProtected = false;
+  bool pickingPhoto = false;
   bool consent = false;
   bool busy = false;
   bool tracking = false;
@@ -80,7 +83,9 @@ class _PublicPageState extends State<PublicPage> {
       consent = draft['consent'] == true;
       final path = draft['image_path']?.toString();
       imagePath = path != null && await File(path).exists() ? path : null;
+      imageProtected = draft['photo_protection'] == 1;
     }
+    if (!mounted) return;
     restoringDraft = false;
     setState(() {});
   }
@@ -101,6 +106,7 @@ class _PublicPageState extends State<PublicPage> {
     'precision': precision,
     'consent': consent,
     'image_path': imagePath,
+    'photo_protection': imageProtected ? 1 : 0,
   });
 
   bool get _hasDraftContent =>
@@ -155,27 +161,88 @@ class _PublicPageState extends State<PublicPage> {
   }
 
   Future<void> _photo() async {
-    final picked = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-      maxWidth: 1600,
-      imageQuality: 75,
-    );
-    if (picked != null && mounted) {
+    if (pickingPhoto || busy) return;
+    setState(() => pickingPhoto = true);
+    try {
+      final picked = await ImagePicker().pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1600,
+        maxHeight: 1600,
+        imageQuality: 85,
+      );
+      if (picked == null || !mounted) return;
+      final protected = await reviewProtectedPhoto(
+        context,
+        picked.path,
+        bangla: widget.bangla,
+      );
+      if (protected == null || !mounted) return;
       final root = await getApplicationDocumentsDirectory();
       final folder = Directory('${root.path}/report_draft');
       await folder.create(recursive: true);
-      final extension = picked.path.toLowerCase().endsWith('.png')
-          ? 'png'
-          : 'jpg';
-      final stored = await File(
-        picked.path,
-      ).copy('${folder.path}/selected.$extension');
-      setState(() => imagePath = stored.path);
+      final stored = await File(protected).copy(
+        '${folder.path}/protected-${DateTime.now().microsecondsSinceEpoch}.jpg',
+      );
+      await File(protected).delete();
+      if (!mounted) return;
+      setState(() {
+        imagePath = stored.path;
+        imageProtected = true;
+      });
       _scheduleDraft();
+    } catch (_) {
+      if (mounted) {
+        setState(
+          () => message = t(
+            'Could not attach the protected photo. Try another photo.',
+            'ঢাকা ছবিটি যোগ হয়নি। অন্য ছবি নিন।',
+          ),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => pickingPhoto = false);
     }
   }
 
   Future<void> _submit() async {
+    if (busy || pickingPhoto) return;
+    if (imagePath != null && !imageProtected) {
+      setState(() => pickingPhoto = true);
+      try {
+        final safe = await reviewProtectedPhoto(
+          context,
+          imagePath!,
+          bangla: widget.bangla,
+        );
+        if (safe == null || !mounted) return;
+        final root = await getApplicationDocumentsDirectory();
+        final folder = Directory('${root.path}/report_draft');
+        await folder.create(recursive: true);
+        final stored = await File(safe).copy(
+          '${folder.path}/protected-${DateTime.now().microsecondsSinceEpoch}.jpg',
+        );
+        await File(safe).delete();
+        if (!mounted) return;
+        setState(() {
+          imagePath = stored.path;
+          imageProtected = true;
+        });
+        await _persistDraft();
+      } catch (_) {
+        if (mounted) {
+          setState(
+            () => message = t(
+              'Could not save the protected photo. Please try again.',
+              'ঢাকা ছবিটি সংরক্ষণ হয়নি। আবার চেষ্টা করুন।',
+            ),
+          );
+        }
+        return;
+      } finally {
+        if (mounted) setState(() => pickingPhoto = false);
+      }
+      if (!mounted) return;
+    }
     if (!consent) {
       setState(
         () => message = t(
@@ -223,6 +290,7 @@ class _PublicPageState extends State<PublicPage> {
       lng.clear();
       selected.clear();
       imagePath = null;
+      imageProtected = false;
       consent = false;
       restoringDraft = false;
       await widget.repository.flushReports();
@@ -377,7 +445,7 @@ class _PublicPageState extends State<PublicPage> {
       ),
     ),
     OutlinedButton.icon(
-      onPressed: _photo,
+      onPressed: busy || pickingPhoto ? null : _photo,
       icon: const Icon(Icons.photo_library_outlined),
       label: Text(
         imagePath == null
@@ -399,13 +467,16 @@ class _PublicPageState extends State<PublicPage> {
       ),
       Text(
         t(
-          'Privacy preview: review the photo before sharing. Remove identifiable people or private interiors.',
-          'ছবিটি পাঠানোর আগে দেখে নিন। কারও মুখ বা ঘরের ভেতরের ব্যক্তিগত অংশ দেখা গেলে ছবিটি বদলান।',
+          'Content checked. Faces and recognized text protected on this phone. Review for anything missed before sharing.',
+          'বিষয়বস্তু পরীক্ষা হয়েছে। ফোনেই মুখ ও শনাক্ত লেখা ঢাকা হয়েছে। বাদ পড়া ব্যক্তিগত অংশ আছে কি না দেখে নিন।',
         ),
       ),
       TextButton(
         onPressed: () {
-          setState(() => imagePath = null);
+          setState(() {
+            imagePath = null;
+            imageProtected = false;
+          });
           _scheduleDraft();
         },
         child: Text(t('Remove photo', 'ছবি বাদ দিন')),
