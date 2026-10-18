@@ -177,6 +177,15 @@ class _OfficialOverviewState extends State<OfficialOverview> {
             onTap: () => widget.onNavigate('tasks'),
           ),
           _ActionCard(
+            icon: Icons.hub_outlined,
+            title: t('Connected city operations', 'সমন্বিত সিটি অপারেশন'),
+            detail: t(
+              'Explore three seeded cases from signals to verified results.',
+              'তিনটি নমুনা ঘটনায় খবর থেকে ফল যাচাই পর্যন্ত দেখুন।',
+            ),
+            onTap: () => widget.onNavigate('operations'),
+          ),
+          _ActionCard(
             icon: Icons.bar_chart_outlined,
             title: t('City work report', 'কাজের সারসংক্ষেপ'),
             detail: t(

@@ -12,6 +12,7 @@ import 'official_task_list.dart';
 import 'official_report_view.dart';
 import 'workflow_labels.dart';
 import 'observation_review_card.dart';
+import 'operations_lab.dart';
 
 class OfficialPages extends StatefulWidget {
   const OfficialPages({
@@ -69,6 +70,8 @@ class _OfficialPagesState extends State<OfficialPages> {
     if (role != 'survey_operator')
       ('tasks', Icons.assignment_outlined, 'Tasks', 'কাজ'),
     if (manager) ('map', Icons.map_outlined, 'Map', 'মানচিত্র'),
+    if (role != 'survey_operator')
+      ('operations', Icons.hub_outlined, 'City operations', 'সমন্বিত অপারেশন'),
     if (manager) ('reports', Icons.bar_chart_outlined, 'Reports', 'প্রতিবেদন'),
     if (reviewer || role == 'survey_operator')
       ('studio', Icons.image_search_outlined, 'Media Studio', 'মিডিয়া স্টুডিও'),
@@ -111,6 +114,8 @@ class _OfficialPagesState extends State<OfficialPages> {
         );
       case 'map':
         content = _map();
+      case 'operations':
+        content = OperationsLab(bangla: widget.bangla);
       case 'reports':
         content = OfficialReportView(
           repository: widget.repository,
@@ -150,6 +155,7 @@ class _OfficialPagesState extends State<OfficialPages> {
                 'dashboard',
                 'incidents',
                 'tasks',
+                'operations',
                 'reports',
                 'surveys',
               ].contains(item.$1) ||

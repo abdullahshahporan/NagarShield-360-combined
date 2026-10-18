@@ -1,0 +1,341 @@
+{
+  "version": 1,
+  "notice": {
+    "en": "Illustrative rehearsal. Camera, drone, weather and asset links are seeded examples. No live feed, AI inference or dispatch is connected here.",
+    "bn": "এটি সাজানো অনুশীলন। ক্যামেরা, ড্রোন, আবহাওয়া ও স্থাপনার সংযোগ নমুনা তথ্য; এখানে লাইভ ফিড, AI শনাক্তকরণ বা বাস্তব dispatch যুক্ত নয়।"
+  },
+  "cases": [
+    {
+      "id": "market",
+      "code": "PILOT-01",
+      "image": "mixed",
+      "title": { "en": "Market corridor: waste, drain and walking space", "bn": "বাজার করিডর: বর্জ্য, ড্রেন ও হাঁটার পথ" },
+      "area": { "en": "Illustrative Mirpur ward", "bn": "নমুনা মিরপুর ওয়ার্ড" },
+      "story": { "en": "Waste near an inlet, water on the road and a crowded footpath may be one connected job. Sending three teams separately can leave the cause untouched.", "bn": "ড্রেনের মুখে বর্জ্য, রাস্তায় পানি আর ভরা ফুটপাত—তিনটি আলাদা অভিযোগ হলেও একই জায়গার একটি কাজ হতে পারে। আলাদা দল পাঠালে মূল কারণ থেকে যেতে পারে।" },
+      "signals": [
+        { "source": "citizen", "age": "30 min", "quality": "medium", "text": { "en": "A resident reports water crossing the walking route.", "bn": "নাগরিক জানিয়েছেন, হাঁটার পথে পানি উঠেছে।" }, "limit": { "en": "Location is approximate; check before action.", "bn": "অবস্থান আনুমানিক; কাজের আগে যাচাই দরকার।" } },
+        { "source": "camera", "age": "12 min", "quality": "medium", "text": { "en": "Permitted local camera shows the footpath narrowing.", "bn": "অনুমোদিত স্থানীয় ক্যামেরায় ফুটপাত সংকুচিত দেখা যায়।" }, "limit": { "en": "The drain interior is not visible.", "bn": "ড্রেনের ভেতর দেখা যায় না।" } },
+        { "source": "drone", "age": "1 day", "quality": "low", "text": { "en": "Approved survey image shows waste along the corridor.", "bn": "অনুমোদিত জরিপের ছবিতে করিডরজুড়ে বর্জ্য দেখা যায়।" }, "limit": { "en": "Older image; confirm current conditions on site.", "bn": "ছবিটি পুরোনো; বর্তমান অবস্থা মাঠে মিলিয়ে নিতে হবে।" } },
+        { "source": "field", "age": "2 h", "quality": "high", "text": { "en": "Ward worker notes a blocked inlet and access for a small vehicle.", "bn": "ওয়ার্ডকর্মী বন্ধ inlet এবং ছোট গাড়ির প্রবেশপথ নথিভুক্ত করেছেন।" }, "limit": { "en": "Outlet condition still unknown.", "bn": "পানি বের হওয়ার মুখের অবস্থা এখনও অজানা।" } }
+      ],
+      "media": [
+        { "id": "market-cctv", "source": "camera", "kind": "video", "preset": "mixed", "age": "12 min", "timeRange": "00:04–00:09", "confidence": 0.82, "box": [14, 45, 35, 30], "optionId": "culvert", "boost": 6, "initiallyUsed": true, "finding": { "en": "Water and waste appear near the same road section.", "bn": "একই সড়ক অংশে পানি ও বর্জ্য দেখা যায়।" }, "limit": { "en": "Camera cannot see inside the culvert; this is a review cue, not proof of blockage.", "bn": "ক্যামেরায় কালভার্টের ভেতর দেখা যায় না; এটি যাচাইয়ের সংকেত, বাধার প্রমাণ নয়।" } },
+        { "id": "market-drone", "source": "drone", "kind": "image", "preset": "mixed", "age": "1 day", "timeRange": "still", "confidence": 0.64, "box": [59, 43, 24, 25], "optionId": "local", "boost": 3, "initiallyUsed": false, "finding": { "en": "Waste follows the inlet corridor.", "bn": "inlet করিডর বরাবর বর্জ্য দেখা যায়।" }, "limit": { "en": "Older survey; a new field check is needed.", "bn": "পুরোনো জরিপ; নতুন মাঠ যাচাই দরকার।" } },
+        { "id": "market-field", "source": "field", "kind": "image", "preset": "drain", "age": "2 h", "timeRange": "still", "confidence": 0.9, "box": [16, 47, 57, 29], "optionId": "culvert", "boost": 5, "initiallyUsed": true, "finding": { "en": "Inlet is blocked; downstream outlet is unconfirmed.", "bn": "inlet বন্ধ; নিচের outlet এখনও নিশ্চিত নয়।" }, "limit": { "en": "An engineer must confirm the downstream cause.", "bn": "নিচের কারণ প্রকৌশলীকে নিশ্চিত করতে হবে।" } }
+      ],
+      "duplicate": { "en": "Two resident reports and the camera view may describe the same location. Keep each source, link them to one case and let the officer confirm.", "bn": "দুটি নাগরিক প্রতিবেদন ও ক্যামেরার দৃশ্য একই জায়গার হতে পারে। উৎসগুলো রেখে একটি ঘটনায় মিলিয়ে কর্মকর্তা নিশ্চিত করবেন।" },
+      "assetPath": ["Market inlet D-21", "Main drain D-06", "Culvert C-04", "Canal outlet"],
+      "map": {
+        "label": { "en": "Illustrative market corridor map", "bn": "নমুনা বাজার করিডর মানচিত্র" },
+        "buildings": [[8, 8, 22, 17], [38, 8, 20, 17], [68, 8, 22, 17], [8, 76, 25, 15], [43, 76, 20, 15], [73, 76, 18, 15]],
+        "roads": [[[0, 34], [100, 34]], [[0, 72], [100, 72]], [[34, 0], [34, 100]], [[66, 0], [66, 100]]],
+        "drains": [
+          { "id": "D-21 → D-06", "points": [[14, 63], [42, 63], [52, 63]] },
+          { "id": "D-06 → C-04 → canal", "points": [[52, 63], [75, 63], [94, 63]] }
+        ],
+        "assets": [
+          { "id": "D-21", "x": 18, "y": 63, "kind": "drain", "label": { "en": "Market inlet", "bn": "বাজারের inlet" }, "downstream": "D-06", "taskIndex": 1 },
+          { "id": "D-06", "x": 52, "y": 63, "kind": "drain", "label": { "en": "Main drain", "bn": "প্রধান ড্রেন" }, "downstream": "C-04", "taskIndex": 1 },
+          { "id": "C-04", "x": 75, "y": 63, "kind": "culvert", "label": { "en": "Possible downstream blockage", "bn": "নিচে সম্ভাব্য বাধা" }, "downstream": "Canal outlet", "taskIndex": 1 },
+          { "id": "W-01", "x": 48, "y": 33, "kind": "footpath", "label": { "en": "Crowded footpath", "bn": "বাধাগ্রস্ত ফুটপাত" }, "downstream": "—", "taskIndex": 2 }
+        ],
+        "cameras": [[62, 32]],
+        "blindSpot": { "polygon": [[65, 53], [95, 53], [95, 72], [65, 72]], "label": { "en": "Culvert interior and outlet", "bn": "কালভার্টের ভেতর ও outlet" }, "reason": { "en": "Street CCTV cannot establish whether the culvert is blocked. Send an engineer to inspect the outlet.", "bn": "রাস্তার CCTV কালভার্ট বন্ধ কি না নিশ্চিত করতে পারে না। প্রকৌশলী দিয়ে outlet পরীক্ষা করান।" }, "taskIndex": 1 },
+        "survey": {
+          "polygon": [[9, 28], [89, 28], [89, 70], [9, 70]],
+          "route": [[13, 38], [85, 38], [85, 48], [13, 48], [13, 58], [85, 58]],
+          "launch": [13, 38],
+          "scope": { "en": "Survey inlet, waste line and culvert corridor", "bn": "inlet, বর্জ্যের রেখা ও কালভার্ট করিডর জরিপ" },
+          "permission": { "en": "Ward and aviation approvals, safe launch point and privacy review required", "bn": "ওয়ার্ড ও উড্ডয়ন অনুমতি, নিরাপদ launch point এবং privacy review দরকার" }
+        }
+      },
+      "hypothesis": { "en": "The road water may be held back at culvert C-04 downstream.", "bn": "রাস্তার পানি নিচের দিকের C-04 কালভার্টে আটকে থাকতে পারে।" },
+      "reason": { "en": "Several upstream drains depend on it and a previous blockage was recorded. This is a network-based lead, not a flood simulation.", "bn": "উপরের কয়েকটি ড্রেন এটির ওপর নির্ভর করে এবং আগেও এখানে বাধা নথিভুক্ত হয়েছে। এটি সংযোগভিত্তিক ধারণা, বন্যার simulation নয়।" },
+      "fieldCheck": { "en": "Engineer checks the inlet, culvert and outlet before confirming the cause.", "bn": "কারণ নিশ্চিত করার আগে প্রকৌশলী inlet, কালভার্ট ও outlet দেখবেন।" },
+      "options": [
+        { "id": "local", "title": { "en": "Clear the local inlet", "bn": "স্থানীয় inlet পরিষ্কার" }, "reach": 2, "safety": 3, "recurrence": 2, "access": 5, "why": { "en": "Quick to reach, but may help only one street.", "bn": "দ্রুত পৌঁছানো যায়, তবে হয়তো একটি রাস্তারই উপকার হবে।" } },
+        { "id": "culvert", "title": { "en": "Inspect culvert C-04", "bn": "C-04 কালভার্ট পরীক্ষা" }, "reach": 5, "safety": 5, "recurrence": 4, "access": 3, "why": { "en": "Could relieve several connected streets; confirm access first.", "bn": "সংযুক্ত কয়েকটি রাস্তার উপকার হতে পারে; আগে প্রবেশপথ নিশ্চিত করতে হবে।" } },
+        { "id": "canal", "title": { "en": "Inspect canal outlet", "bn": "খালের outlet পরীক্ষা" }, "reach": 4, "safety": 3, "recurrence": 3, "access": 2, "why": { "en": "Wider reach, but access and ownership need checking.", "bn": "প্রভাব বিস্তৃত হতে পারে, তবে প্রবেশপথ ও দায়িত্ব যাচাই দরকার।" } }
+      ],
+      "owner": { "en": "Ward operations officer", "bn": "ওয়ার্ড পরিচালনা কর্মকর্তা" },
+      "coordination": { "external": [
+        { "who": { "en": "Market committee", "bn": "বাজার কমিটি" }, "action": { "en": "Keep access open and agree on waste timing.", "bn": "প্রবেশপথ খোলা রাখা ও বর্জ্য তোলার সময় ঠিক করা।" } },
+        { "who": { "en": "Local camera owner", "bn": "স্থানীয় ক্যামেরার মালিক" }, "action": { "en": "Share only approved short clips for the affected corridor.", "bn": "প্রভাবিত করিডরের অনুমোদিত ছোট clip-ই দেওয়া।" } }
+      ], "escalation": { "en": "If drainage, waste or traffic cannot agree on access, the ward case owner escalates one joint visit to the control room.", "bn": "ড্রেন, বর্জ্য ও ট্রাফিক দল প্রবেশপথে একমত না হলে ওয়ার্ডের case owner control room-এ যৌথ সফর escalate করেন।" }, "publicUpdate": { "en": "We have linked the water, waste and footpath reports. Teams are checking the inlet and safe walking route together; the cause is not yet confirmed.", "bn": "পানি, বর্জ্য ও ফুটপাতের খবর একই ঘটনায় যুক্ত হয়েছে। দলগুলো inlet ও নিরাপদ হাঁটার পথ একসঙ্গে দেখছে; কারণ এখনও নিশ্চিত নয়।" } },
+      "route": { "en": "Small vehicle → market inlet → culvert C-04 → canal outlet", "bn": "ছোট গাড়ি → বাজার inlet → C-04 কালভার্ট → খালের outlet" },
+      "resources": { "en": "Drain crew, waste crew, small vehicle, inspection tools and traffic support", "bn": "ড্রেন দল, বর্জ্য দল, ছোট গাড়ি, পরিদর্শন সরঞ্জাম ও ট্রাফিক সহায়তা" },
+      "capacity": { "taskIndex": 1, "resource": { "en": "Small drain vehicle", "bn": "ছোট ড্রেন গাড়ি" }, "whenMissing": { "en": "The culvert inspection cannot be dispatched as planned. Keep the pedestrian route safe while dispatch checks the next vehicle shift.", "bn": "ছোট গাড়ি না থাকলে পরিকল্পিত কালভার্ট পরীক্ষা দেওয়া যাবে না। পরের গাড়ির শিফট খোঁজার সময়ে হাঁটার পথ নিরাপদ রাখুন।" }, "fallback": { "en": "Assign the waste and traffic safety tasks now; hold drainage until access and equipment are confirmed.", "bn": "বর্জ্য ও ট্রাফিকের নিরাপত্তার কাজ এখন দিন; প্রবেশ ও সরঞ্জাম নিশ্চিত না হওয়া পর্যন্ত ড্রেনের কাজ অপেক্ষায় রাখুন।" } },
+      "watch": { "trigger": { "en": "After the next rainfall", "bn": "পরের বৃষ্টির পরে" }, "location": { "en": "Market inlet and C-04 outlet", "bn": "বাজার inlet ও C-04 outlet" }, "reason": { "en": "Water returning upstream would show that a one-time cleaning missed the underlying restriction.", "bn": "উপরের দিকে পানি আবার জমলে বোঝা যাবে একবার পরিষ্কার করে মূল বাধা দূর হয়নি।" }, "taskIndex": 1 },
+      "tasks": [
+        { "team": { "en": "Waste", "bn": "বর্জ্য" }, "action": { "en": "Open safe access to the inlet.", "bn": "inlet-এ নিরাপদ প্রবেশপথ খুলুন।" } },
+        { "team": { "en": "Drainage", "bn": "ড্রেনেজ" }, "action": { "en": "Inspect the culvert and outlet; clear a confirmed blockage.", "bn": "কালভার্ট ও outlet পরীক্ষা করুন; বাধা নিশ্চিত হলে পরিষ্কার করুন।" } },
+        { "team": { "en": "Public space", "bn": "জনপরিসর" }, "action": { "en": "Restore a walkable footpath.", "bn": "ফুটপাতে হাঁটার জায়গা ফিরিয়ে দিন।" } },
+        { "team": { "en": "Traffic", "bn": "ট্রাফিক" }, "action": { "en": "Keep the road usable during work.", "bn": "কাজের সময় রাস্তায় চলাচল বজায় রাখুন।" } },
+        { "team": { "en": "Health", "bn": "স্বাস্থ্য" }, "action": { "en": "Inspect persistent water; do not infer mosquito presence from an image.", "bn": "স্থায়ী পানি পরীক্ষা করুন; শুধু ছবি দেখে মশা আছে ধরে নেবেন না।" } }
+      ],
+      "prevention": { "en": "If heavy rain is forecast, inspect the repeat blockage before the rain and ask an engineer whether a lasting repair is needed.", "bn": "ভারী বৃষ্টির পূর্বাভাস থাকলে আগের বাধার জায়গাটি আগেই পরীক্ষা করুন; স্থায়ী মেরামত দরকার কি না প্রকৌশলী দেখবেন।" },
+      "crisis": { "en": "If the nearby hospital approach becomes blocked, show the available crew and pump, then let the control-room officer approve a new order.", "bn": "কাছের হাসপাতালের পথ বন্ধ হলে উপলব্ধ দল ও pump দেখিয়ে control-room কর্মকর্তা নতুন অগ্রাধিকার অনুমোদন করবেন।" },
+      "verify": [
+        { "en": "Before and after location photos", "bn": "একই স্থানের কাজের আগে ও পরের ছবি" },
+        { "en": "Engineer confirms water can exit", "bn": "প্রকৌশলী পানি বের হওয়ার পথ নিশ্চিত করেন" },
+        { "en": "Footpath remains passable", "bn": "ফুটপাত দিয়ে চলা যায়" },
+        { "en": "Recheck after the next rainfall", "bn": "পরের বৃষ্টির পরে আবার দেখা" }
+      ]
+    },
+    {
+      "id": "alley",
+      "code": "PILOT-02",
+      "image": "water",
+      "title": { "en": "Between buildings and roof gardens: hidden water", "bn": "ভবনের ফাঁক ও ছাদবাগান: আড়ালে জমা পানি" },
+      "area": { "en": "Illustrative residential lane", "bn": "নমুনা আবাসিক গলি" },
+      "story": { "en": "A narrow building gap and roof-garden containers are hard to check from the street. Waste and standing water can persist beyond a camera's view; a health worker must inspect before calling it a breeding site.", "bn": "ভবনের সরু ফাঁক ও ছাদবাগানের পাত্র রাস্তা থেকে দেখা কঠিন। ক্যামেরার আড়ালে বর্জ্য ও পানি থাকতে পারে; মশার প্রজননস্থল বলার আগে স্বাস্থ্যকর্মীকে পরীক্ষা করতে হবে।" },
+      "signals": [
+        { "source": "citizen", "age": "4 h", "quality": "medium", "text": { "en": "Resident reports smell and standing water.", "bn": "বাসিন্দা দুর্গন্ধ ও জমা পানির কথা জানিয়েছেন।" }, "limit": { "en": "Photo does not identify larvae.", "bn": "ছবি দিয়ে লার্ভা শনাক্ত হয় না।" } },
+        { "source": "drone", "age": "6 h", "quality": "medium", "text": { "en": "Approved overhead survey suggests waste in the gap.", "bn": "অনুমোদিত ওপরের জরিপে ফাঁকে বর্জ্যের ইঙ্গিত পাওয়া যায়।" }, "limit": { "en": "Roof and walls hide part of the ground.", "bn": "ছাদ ও দেয়ালে মাটির কিছু অংশ আড়াল থাকে।" } },
+        { "source": "field", "age": "1 day", "quality": "low", "text": { "en": "Health worker requested access to inspect water.", "bn": "স্বাস্থ্যকর্মী পানি পরীক্ষার জন্য প্রবেশের অনুরোধ করেছেন।" }, "limit": { "en": "Owner permission is still needed.", "bn": "মালিকের অনুমতি এখনও প্রয়োজন।" } },
+        { "source": "citizen", "age": "3 h", "quality": "low", "text": { "en": "A resident asks whether uncovered roof-garden containers are holding water.", "bn": "এক বাসিন্দা জানতে চেয়েছেন, ছাদবাগানের খোলা পাত্রে পানি আছে কি না।" }, "limit": { "en": "The roof has not been inspected; no breeding claim is made.", "bn": "ছাদ পরীক্ষা হয়নি; মশার প্রজননের দাবি করা হচ্ছে না।" } }
+      ],
+      "media": [
+        { "id": "alley-camera", "source": "camera", "kind": "video", "preset": "water", "age": "4 h", "timeRange": "00:02–00:06", "confidence": 0.58, "box": [19, 60, 64, 23], "optionId": "drain", "boost": 2, "initiallyUsed": false, "finding": { "en": "Water is visible near the lane, not inside the gap.", "bn": "গলির কাছে পানি দেখা যায়, ভবনের ফাঁকের ভেতরে নয়।" }, "limit": { "en": "Camera blind spot; do not conclude mosquito presence.", "bn": "ক্যামেরার আড়াল আছে; মশা আছে বলে সিদ্ধান্ত নয়।" } },
+        { "id": "alley-drone", "source": "drone", "kind": "image", "preset": "water", "age": "6 h", "timeRange": "still", "confidence": 0.72, "box": [19, 60, 64, 23], "optionId": "health", "boost": 5, "initiallyUsed": true, "finding": { "en": "Standing water is possible in the building gap.", "bn": "ভবনের ফাঁকে পানি জমে থাকার সম্ভাবনা দেখা যায়।" }, "limit": { "en": "Roof occlusion and no larval inspection.", "bn": "ছাদের আড়াল আছে এবং লার্ভা পরীক্ষা হয়নি।" } },
+        { "id": "alley-resident", "source": "citizen", "kind": "image", "preset": "water", "age": "4 h", "timeRange": "still", "confidence": 0.66, "box": [19, 60, 64, 23], "optionId": "health", "boost": 3, "initiallyUsed": true, "finding": { "en": "Resident photo supports a site visit.", "bn": "বাসিন্দার ছবি মাঠে যাওয়ার প্রয়োজন সমর্থন করে।" }, "limit": { "en": "Exact location and water condition need confirmation.", "bn": "সঠিক অবস্থান ও পানির অবস্থা নিশ্চিত করতে হবে।" } }
+      ],
+      "duplicate": { "en": "Keep repeated resident reports together, but show that the site has not yet been inspected.", "bn": "একই জায়গার বারবার দেওয়া প্রতিবেদন একত্রে রাখুন, তবে মাঠপর্যায়ে পরীক্ষা হয়নি তা স্পষ্ট দেখান।" },
+      "assetPath": ["Lane entrance", "Building gap", "Local drain", "Main drain"],
+      "map": {
+        "label": { "en": "Illustrative building-gap map", "bn": "নমুনা ভবনের ফাঁকের মানচিত্র" },
+        "buildings": [[8, 8, 31, 48], [57, 8, 31, 48], [8, 76, 31, 16], [57, 76, 31, 16]],
+        "roads": [[[0, 65], [100, 65]], [[48, 0], [48, 100]]],
+        "drains": [{ "id": "Gap → local drain → main drain", "points": [[48, 30], [48, 52], [48, 65], [84, 65]] }],
+        "assets": [
+          { "id": "G-01", "x": 48, "y": 30, "kind": "water", "label": { "en": "Hidden standing water", "bn": "আড়ালে জমা পানি" }, "downstream": "D-31", "taskIndex": 1 },
+          { "id": "G-02", "x": 48, "y": 50, "kind": "waste", "label": { "en": "Waste in the gap", "bn": "ভবনের ফাঁকে বর্জ্য" }, "downstream": "D-31", "taskIndex": 2 },
+          { "id": "D-31", "x": 48, "y": 65, "kind": "drain", "label": { "en": "Local drain", "bn": "স্থানীয় ড্রেন" }, "downstream": "Main drain", "taskIndex": 3 },
+          { "id": "R-01", "x": 24, "y": 21, "kind": "roof", "label": { "en": "Roof-garden containers to check", "bn": "ছাদবাগানের পাত্র পরীক্ষা" }, "downstream": "—", "taskIndex": 1 }
+        ],
+        "cameras": [[19, 65]],
+        "blindSpot": { "polygon": [[40, 10], [56, 10], [56, 58], [40, 58]], "label": { "en": "Building gap and roof-garden containers", "bn": "ভবনের ফাঁক ও ছাদবাগানের পাত্র" }, "reason": { "en": "Street CCTV cannot inspect the ground or roof containers. Arrange owner access and a health visit; aerial imagery cannot confirm larvae.", "bn": "রাস্তার CCTV মাটি বা ছাদের পাত্র দেখতে পারে না। মালিকের অনুমতি ও স্বাস্থ্য পরীক্ষা ঠিক করুন; ওপরের ছবি দিয়ে লার্ভা নিশ্চিত হয় না।" }, "taskIndex": 0 },
+        "survey": {
+          "polygon": [[41, 15], [55, 15], [55, 60], [41, 60]],
+          "route": [[44, 20], [52, 20], [52, 36], [44, 36], [44, 52], [52, 52]],
+          "launch": [44, 20],
+          "scope": { "en": "Overhead look into the narrow gap; ground remains partly hidden", "bn": "সরু ফাঁকে ওপর থেকে দেখা; মাটির কিছু অংশ আড়ালেই থাকবে" },
+          "permission": { "en": "Property access, flight approval and privacy review required", "bn": "সম্পত্তিতে প্রবেশ, উড্ডয়ন অনুমতি ও privacy review দরকার" }
+        }
+      },
+      "hypothesis": { "en": "Waste may prevent water from reaching the local drain; mosquito risk needs a health inspection.", "bn": "বর্জ্য স্থানীয় ড্রেনে পানি যেতে বাধা দিতে পারে; মশার ঝুঁকি স্বাস্থ্যকর্মীর পরীক্ষায় বুঝতে হবে।" },
+      "reason": { "en": "The site has repeated reports and poor visibility. No image proves a breeding site.", "bn": "বারবার প্রতিবেদন এসেছে, জায়গাটি সহজে দেখা যায় না। কোনো ছবি প্রজননস্থল প্রমাণ করে না।" },
+      "fieldCheck": { "en": "Secure access, inspect the building gap, roof-garden containers and drainage, and correct the mapped location.", "bn": "প্রবেশের অনুমতি নিয়ে ভবনের ফাঁক, ছাদবাগানের পাত্র ও ড্রেন দেখুন; মানচিত্রের অবস্থান ঠিক করুন।" },
+      "options": [
+        { "id": "health", "title": { "en": "Health inspection first", "bn": "আগে স্বাস্থ্য পরীক্ষা" }, "reach": 4, "safety": 5, "recurrence": 4, "access": 2, "why": { "en": "Clarifies the health concern; access approval required.", "bn": "স্বাস্থ্যঝুঁকি পরিষ্কার হবে; প্রবেশের অনুমতি দরকার।" } },
+        { "id": "waste", "title": { "en": "Clear visible waste", "bn": "দৃশ্যমান বর্জ্য সরানো" }, "reach": 3, "safety": 3, "recurrence": 2, "access": 3, "why": { "en": "Improves the site, but drainage may still be blocked.", "bn": "জায়গা পরিষ্কার হবে, কিন্তু ড্রেন তখনও বন্ধ থাকতে পারে।" } },
+        { "id": "drain", "title": { "en": "Inspect the local drain", "bn": "স্থানীয় ড্রেন পরীক্ষা" }, "reach": 3, "safety": 4, "recurrence": 4, "access": 2, "why": { "en": "Tests a possible cause once entry is arranged.", "bn": "প্রবেশের ব্যবস্থা হলে সম্ভাব্য কারণ দেখা যাবে।" } }
+      ],
+      "owner": { "en": "Ward health and sanitation coordinator", "bn": "ওয়ার্ড স্বাস্থ্য ও পরিচ্ছন্নতা সমন্বয়কারী" },
+      "coordination": { "external": [
+        { "who": { "en": "Property owner and roof caretaker", "bn": "সম্পত্তির মালিক ও ছাদের দেখভালকারী" }, "action": { "en": "Arrange consent and safe entry for gap and roof checks.", "bn": "ফাঁক ও ছাদ পরীক্ষা করতে সম্মতি ও নিরাপদ প্রবেশের ব্যবস্থা।" } },
+        { "who": { "en": "Residents and health office", "bn": "বাসিন্দা ও স্বাস্থ্য দপ্তর" }, "action": { "en": "Report repeat water; health staff verify any breeding concern.", "bn": "পানি আবার জমলে জানান; প্রজননের আশঙ্কা স্বাস্থ্যকর্মী যাচাই করেন।" } }
+      ], "escalation": { "en": "If access is denied, record the blocker and ask the ward lead to arrange a lawful visit; do not infer a health result from imagery.", "bn": "প্রবেশ না পেলে বাধা লিখে ওয়ার্ড নেতৃত্বকে নিয়মমাফিক সফর ঠিক করতে বলুন; ছবি দিয়ে স্বাস্থ্য ফল ধরে নেবেন না।" }, "publicUpdate": { "en": "We are arranging access to inspect the building gap and roof containers. The reported water is under review; mosquito breeding has not been confirmed.", "bn": "ভবনের ফাঁক ও ছাদের পাত্র পরীক্ষা করতে প্রবেশের ব্যবস্থা চলছে। জমা পানির খবর যাচাই হচ্ছে; মশার প্রজনন নিশ্চিত হয়নি।" } },
+      "route": { "en": "Resident contact → permission → gap inspection → local drain", "bn": "বাসিন্দার সঙ্গে যোগাযোগ → অনুমতি → ফাঁক পরীক্ষা → স্থানীয় ড্রেন" },
+      "resources": { "en": "Health inspector, sanitation crew, drain worker and safe access equipment", "bn": "স্বাস্থ্য পরিদর্শক, পরিচ্ছন্নতা দল, ড্রেনকর্মী ও নিরাপদ প্রবেশের সরঞ্জাম" },
+      "capacity": { "taskIndex": 1, "resource": { "en": "Property access", "bn": "সম্পত্তিতে প্রবেশের অনুমতি" }, "whenMissing": { "en": "A health visit cannot enter the gap yet. Do not mark the mosquito risk as cleared from imagery.", "bn": "অনুমতি ছাড়া স্বাস্থ্যদল ফাঁকে ঢুকতে পারবে না। শুধু ছবি দেখে মশার ঝুঁকি শেষ বলবেন না।" }, "fallback": { "en": "Ask the ward team to arrange access; review public-side drainage in the meantime.", "bn": "ওয়ার্ড দলকে অনুমতি আনার কাজ দিন; ততক্ষণে বাইরের ড্রেন দেখুন।" } },
+      "watch": { "trigger": { "en": "After rain and resident follow-up", "bn": "বৃষ্টি ও বাসিন্দার মতামতের পরে" }, "location": { "en": "Building gap, roof garden and local drain D-31", "bn": "ভবনের ফাঁক, ছাদবাগান ও স্থানীয় D-31 ড্রেন" }, "reason": { "en": "If water returns, review the drain connection and have health staff recheck containers with permission.", "bn": "পানি ফিরে এলে ড্রেনের সংযোগ দেখে অনুমতি নিয়ে স্বাস্থ্যকর্মীকে পাত্র আবার পরীক্ষা করতে হবে।" }, "taskIndex": 1 },
+      "tasks": [
+        { "team": { "en": "Ward", "bn": "ওয়ার্ড" }, "action": { "en": "Arrange access with the property owner.", "bn": "সম্পত্তির মালিকের সঙ্গে প্রবেশের ব্যবস্থা করুন।" } },
+        { "team": { "en": "Health", "bn": "স্বাস্থ্য" }, "action": { "en": "Inspect gap water and roof-garden containers; record findings.", "bn": "ফাঁকের পানি ও ছাদবাগানের পাত্র পরীক্ষা করে ফল লিখুন।" } },
+        { "team": { "en": "Sanitation", "bn": "পরিচ্ছন্নতা" }, "action": { "en": "Remove confirmed waste safely.", "bn": "নিশ্চিত বর্জ্য নিরাপদে সরান।" } },
+        { "team": { "en": "Drainage", "bn": "ড্রেনেজ" }, "action": { "en": "Check water exit and correct the asset map.", "bn": "পানি বের হওয়ার পথ দেখুন ও স্থাপনার মানচিত্র ঠিক করুন।" } }
+      ],
+      "prevention": { "en": "Schedule a follow-up after rain; repeated water needs an engineering review, not endless cleaning.", "bn": "বৃষ্টির পরে আবার দেখুন; বারবার পানি জমলে শুধু পরিষ্কার না করে প্রকৌশল পর্যালোচনা করুন।" },
+      "crisis": { "en": "If illness reports rise, health officials review the site first and decide on public-health action.", "bn": "অসুস্থতার প্রতিবেদন বাড়লে স্বাস্থ্য কর্মকর্তারা জায়গা যাচাই করে জনস্বাস্থ্য ব্যবস্থা ঠিক করবেন।" },
+      "verify": [
+        { "en": "Owner access recorded", "bn": "মালিকের অনুমতি নথিভুক্ত" },
+        { "en": "Health inspection recorded", "bn": "স্বাস্থ্য পরীক্ষা নথিভুক্ত" },
+        { "en": "Waste and water rechecked", "bn": "বর্জ্য ও পানি আবার দেখা" },
+        { "en": "Resident follow-up after rain", "bn": "বৃষ্টির পর বাসিন্দার সঙ্গে খোঁজ নেওয়া" }
+      ]
+    },
+    {
+      "id": "footpath",
+      "code": "PILOT-03",
+      "image": "footpath",
+      "title": { "en": "A footpath cleared today, blocked again tomorrow", "bn": "আজ ফুটপাত খালি, কাল আবার দখল" },
+      "area": { "en": "Illustrative market entrance", "bn": "নমুনা বাজার প্রবেশপথ" },
+      "story": { "en": "A one-off clearance may shift the obstruction to the next road. Repeated views and field checks help plan a lasting response.", "bn": "একবার উচ্ছেদ করলে বাধা পাশের রাস্তায় সরে যেতে পারে। বারবার দেখা ও মাঠের তথ্য নিয়ে স্থায়ী ব্যবস্থা পরিকল্পনা করা যায়।" },
+      "signals": [
+        { "source": "camera", "age": "8 min", "quality": "high", "text": { "en": "Permitted view shows pedestrians moving into traffic.", "bn": "অনুমোদিত ক্যামেরায় পথচারীকে রাস্তায় নামতে দেখা যায়।" }, "limit": { "en": "View covers one junction only.", "bn": "ক্যামেরায় শুধু একটি মোড় দেখা যায়।" } },
+        { "source": "citizen", "age": "50 min", "quality": "medium", "text": { "en": "Residents report the next road is now blocked too.", "bn": "বাসিন্দারা জানিয়েছেন, পাশের রাস্তাও এখন বাধাগ্রস্ত।" }, "limit": { "en": "Second location needs verification.", "bn": "দ্বিতীয় জায়গাটি যাচাই দরকার।" } },
+        { "source": "field", "age": "3 days", "quality": "medium", "text": { "en": "Earlier clearance completed at the same market.", "bn": "একই বাজারে আগের উচ্ছেদ সম্পন্ন হয়েছিল।" }, "limit": { "en": "Old completion is not current proof.", "bn": "আগের সমাপ্তি বর্তমান অবস্থার প্রমাণ নয়।" } }
+      ],
+      "media": [
+        { "id": "footpath-camera-a", "source": "camera", "kind": "image", "preset": "footpath", "age": "8 min", "timeRange": "sample frame", "confidence": 0.86, "box": [41, 32, 34, 53], "optionId": "crossing", "boost": 7, "initiallyUsed": true, "finding": { "en": "People move from the footpath into the road.", "bn": "পথচারীরা ফুটপাত ছেড়ে রাস্তায় নামছেন।" }, "limit": { "en": "The view covers one junction only.", "bn": "শুধু একটি মোড় ক্যামেরায় দেখা যায়।" } },
+        { "id": "footpath-camera-b", "source": "camera", "kind": "image", "preset": "footpath", "age": "50 min", "timeRange": "sample frame", "confidence": 0.62, "box": [41, 32, 34, 53], "optionId": "other", "boost": 4, "initiallyUsed": false, "finding": { "en": "A second road may now have an obstruction.", "bn": "পাশের রাস্তায়ও বাধা থাকতে পারে।" }, "limit": { "en": "Camera angle differs; verify the second location.", "bn": "ক্যামেরার দিক আলাদা; দ্বিতীয় জায়গা যাচাই দরকার।" } },
+        { "id": "footpath-field", "source": "field", "kind": "image", "preset": "footpath", "age": "3 days", "timeRange": "still", "confidence": 0.75, "box": [41, 32, 34, 53], "optionId": "crossing", "boost": 2, "initiallyUsed": false, "finding": { "en": "Earlier clearance was recorded.", "bn": "আগের উচ্ছেদ নথিভুক্ত ছিল।" }, "limit": { "en": "Old completion is not current access evidence.", "bn": "পুরোনো সমাপ্তি বর্তমান চলাচলের প্রমাণ নয়।" } }
+      ],
+      "duplicate": { "en": "Separate the two roads as locations, but link their recurrence under one corridor mission.", "bn": "দুটি রাস্তা আলাদা অবস্থান রাখুন, কিন্তু পুনরাবৃত্তি একই করিডর mission-এ যুক্ত করুন।" },
+      "assetPath": ["Market entrance", "Footpath A", "Crossing", "Footpath B"],
+      "map": {
+        "label": { "en": "Illustrative footpath corridor map", "bn": "নমুনা ফুটপাত করিডর মানচিত্র" },
+        "buildings": [[7, 8, 23, 30], [36, 8, 23, 30], [65, 8, 25, 30], [7, 70, 23, 20], [36, 70, 23, 20], [65, 70, 25, 20]],
+        "roads": [[[0, 53], [100, 53]], [[33, 0], [33, 100]], [[63, 0], [63, 100]]],
+        "drains": [{ "id": "Roadside drain", "points": [[6, 67], [33, 67], [63, 67], [93, 67]] }],
+        "assets": [
+          { "id": "F-A", "x": 20, "y": 43, "kind": "footpath", "label": { "en": "First footpath", "bn": "প্রথম ফুটপাত" }, "downstream": "Crossing", "downstreamId": "X-01", "taskIndex": 0 },
+          { "id": "X-01", "x": 50, "y": 53, "kind": "crossing", "label": { "en": "Pedestrian crossing", "bn": "পথচারী পারাপার" }, "downstream": "Footpath B", "downstreamId": "F-B", "taskIndex": 1 },
+          { "id": "F-B", "x": 80, "y": 43, "kind": "footpath", "label": { "en": "Repeat blockage on next road", "bn": "পাশের রাস্তায় আবার বাধা" }, "downstream": "—", "downstreamId": "", "taskIndex": 3 }
+        ],
+        "cameras": [[35, 46], [68, 46]],
+        "blindSpot": { "polygon": [[72, 39], [94, 39], [94, 53], [72, 53]], "label": { "en": "Next-road footpath edge", "bn": "পাশের রাস্তার ফুটপাতের প্রান্ত" }, "reason": { "en": "Two junction views do not confirm the full walking route. Check whether obstruction shifted beyond the camera view.", "bn": "দুটি মোড়ের দৃশ্যে পুরো হাঁটার পথ বোঝা যায় না। বাধা ক্যামেরার বাইরে সরে গেছে কি না দেখুন।" }, "taskIndex": 3 },
+        "survey": {
+          "polygon": [[9, 39], [90, 39], [90, 68], [9, 68]],
+          "route": [[12, 45], [86, 45], [86, 61], [12, 61]],
+          "launch": [12, 45],
+          "scope": { "en": "Optional corridor overview; CCTV and walking checks remain primary", "bn": "ঐচ্ছিক করিডর overview; CCTV ও হেঁটে দেখা প্রধান উৎস" },
+          "permission": { "en": "Flight approval and privacy review required; use field survey if unsuitable", "bn": "উড্ডয়ন অনুমতি ও privacy review দরকার; অনুপযুক্ত হলে মাঠ জরিপ" }
+        }
+      },
+      "hypothesis": { "en": "The obstruction is moving along the corridor after each clearance.", "bn": "প্রতিবার উচ্ছেদের পরে বাধাটি করিডরের অন্য জায়গায় সরছে।" },
+      "reason": { "en": "A previous completion and a new nearby report suggest recurrence; an officer should confirm both sites.", "bn": "আগের সমাপ্তি ও পাশের নতুন প্রতিবেদন পুনরাবৃত্তির ইঙ্গিত; কর্মকর্তা দুই জায়গাই নিশ্চিত করবেন।" },
+      "fieldCheck": { "en": "Walk both sides, confirm pedestrian access and speak with market representatives.", "bn": "দুই পাশ হেঁটে দেখুন, পথচারীর জায়গা নিশ্চিত করুন এবং বাজার প্রতিনিধির সঙ্গে কথা বলুন।" },
+      "options": [
+        { "id": "crossing", "title": { "en": "Protect the crossing", "bn": "পারাপারের জায়গা রক্ষা" }, "reach": 5, "safety": 5, "recurrence": 4, "access": 4, "why": { "en": "Keeps pedestrians out of moving traffic.", "bn": "পথচারীকে চলন্ত যানবাহনের পথ থেকে সরায়।" } },
+        { "id": "old", "title": { "en": "Repeat old clearance", "bn": "আগের জায়গায় আবার উচ্ছেদ" }, "reach": 2, "safety": 3, "recurrence": 1, "access": 5, "why": { "en": "Fast, but may move the obstruction again.", "bn": "দ্রুত, তবে বাধা আবার সরে যেতে পারে।" } },
+        { "id": "other", "title": { "en": "Inspect the next road", "bn": "পাশের রাস্তা পরীক্ষা" }, "reach": 3, "safety": 4, "recurrence": 4, "access": 3, "why": { "en": "Checks displacement before setting a corridor plan.", "bn": "করিডর পরিকল্পনার আগে সরে যাওয়া বাধা যাচাই হয়।" } }
+      ],
+      "owner": { "en": "Ward public-space lead", "bn": "ওয়ার্ড জনপরিসর প্রধান" },
+      "coordination": { "external": [
+        { "who": { "en": "Market association", "bn": "বাজার সমিতি" }, "action": { "en": "Agree on loading space and repeat checks without blocking walking access.", "bn": "হাঁটার পথ না আটকে মাল নামানোর জায়গা ও নিয়মিত পর্যবেক্ষণ ঠিক করা।" } },
+        { "who": { "en": "Pedestrians and camera owners", "bn": "পথচারী ও ক্যামেরার মালিক" }, "action": { "en": "Report the next-road shift and share only permitted junction views.", "bn": "পাশের রাস্তায় বাধা সরা জানান ও অনুমোদিত মোড়ের দৃশ্য দিন।" } }
+      ], "escalation": { "en": "If the obstruction moves after clearance, the ward lead convenes market, traffic and public-space teams for a corridor plan.", "bn": "উচ্ছেদের পরে বাধা সরে গেলে ওয়ার্ড নেতৃত্ব বাজার, ট্রাফিক ও জনপরিসর দলকে নিয়ে করিডর পরিকল্পনা করেন।" }, "publicUpdate": { "en": "The crossing and both footpaths are being checked together. A prior clearance does not mean today's walking route is clear.", "bn": "পারাপার ও দুই ফুটপাত একসঙ্গে দেখা হচ্ছে। আগের উচ্ছেদ মানেই আজ হাঁটার পথ খোলা নয়।" } },
+      "route": { "en": "Crossing → first footpath → next road → market office", "bn": "পারাপার → প্রথম ফুটপাত → পাশের রাস্তা → বাজার অফিস" },
+      "resources": { "en": "Public-space team, traffic support, market liaison and walking survey", "bn": "জনপরিসর দল, ট্রাফিক সহায়তা, বাজার প্রতিনিধি ও হেঁটে জরিপ" },
+      "capacity": { "taskIndex": 1, "resource": { "en": "Traffic support", "bn": "ট্রাফিক সহায়তা" }, "whenMissing": { "en": "Do not send a clearance team into moving traffic without safe pedestrian control.", "bn": "নিরাপদ পথচারী নিয়ন্ত্রণ ছাড়া চলন্ত যানবাহনের মাঝে উচ্ছেদ দল পাঠাবেন না।" }, "fallback": { "en": "Confirm traffic support first; let the ward team speak with the market group and survey the next road meanwhile.", "bn": "আগে ট্রাফিক সহায়তা নিশ্চিত করুন; ততক্ষণে ওয়ার্ড দল বাজারের সঙ্গে কথা বলুক ও পাশের রাস্তা দেখুক।" } },
+      "watch": { "trigger": { "en": "At the same busy hour tomorrow", "bn": "আগামীকাল একই ব্যস্ত সময়ে" }, "location": { "en": "Footpath A, crossing and next-road Footpath B", "bn": "প্রথম ফুটপাত, পারাপার ও পাশের রাস্তার ফুটপাত" }, "reason": { "en": "A clear first road can mean the obstruction moved next door. Check the whole corridor before closing the case.", "bn": "প্রথম রাস্তা খালি হলেও বাধা পাশে সরে যেতে পারে। ঘটনা শেষ করার আগে পুরো করিডর দেখুন।" }, "taskIndex": 3 },
+      "tasks": [
+        { "team": { "en": "Public space", "bn": "জনপরিসর" }, "action": { "en": "Open the crossing and walking route.", "bn": "পারাপার ও হাঁটার পথ খুলুন।" } },
+        { "team": { "en": "Traffic", "bn": "ট্রাফিক" }, "action": { "en": "Protect pedestrians during the operation.", "bn": "অভিযানের সময় পথচারীদের নিরাপদ রাখুন।" } },
+        { "team": { "en": "Ward", "bn": "ওয়ার্ড" }, "action": { "en": "Agree on a follow-up with the market group.", "bn": "বাজার প্রতিনিধিদের সঙ্গে পরের পর্যবেক্ষণ ঠিক করুন।" } },
+        { "team": { "en": "Field survey", "bn": "মাঠ জরিপ" }, "action": { "en": "Check the next road for displaced blockage.", "bn": "পাশের রাস্তায় বাধা সরে গেছে কি না দেখুন।" } }
+      ],
+      "prevention": { "en": "Recheck both roads at the same busy hour; repeated blockage triggers a ward-level management plan.", "bn": "একই ব্যস্ত সময়ে দুই রাস্তা আবার দেখুন; বারবার দখল হলে ওয়ার্ড পর্যায়ে ব্যবস্থাপনা পরিকল্পনা করুন।" },
+      "crisis": { "en": "If an ambulance route is affected, the control-room officer can move pedestrian and emergency access ahead of routine work.", "bn": "অ্যাম্বুলেন্সের পথ আটকে গেলে control-room কর্মকর্তা নিয়মিত কাজের আগে জরুরি চলাচলকে অগ্রাধিকার দিতে পারেন।" },
+      "verify": [
+        { "en": "Crossing is passable", "bn": "পারাপার খোলা" },
+        { "en": "Both roads inspected", "bn": "দুই রাস্তা পরীক্ষা" },
+        { "en": "Market follow-up agreed", "bn": "বাজারের সঙ্গে follow-up ঠিক" },
+        { "en": "Repeat check at the same hour", "bn": "একই সময়ে আবার যাচাই" }
+      ]
+    },
+    {
+      "id": "emergency",
+      "code": "PILOT-04",
+      "image": "mixed",
+      "title": { "en": "Sewage overflow on an emergency access road", "bn": "জরুরি চলাচলের রাস্তায় পয়ঃনিষ্কাশনের পানি" },
+      "area": { "en": "Illustrative clinic approach road", "bn": "নমুনা ক্লিনিকে যাওয়ার রাস্তা" },
+      "story": { "en": "Sewage water and a stalled vehicle narrow the road to a clinic. Clearing the visible spill alone may reopen traffic briefly while a sewer restriction remains.", "bn": "পয়ঃনিষ্কাশনের পানি ও থেমে থাকা গাড়িতে ক্লিনিকের পথ সরু হয়েছে। শুধু উপরের পানি সরালে রাস্তা সাময়িক খুলতে পারে, কিন্তু sewer-এর বাধা থেকে যায়।" },
+      "signals": [
+        { "source": "citizen", "age": "18 min", "quality": "medium", "text": { "en": "A rider reports the clinic approach is blocked.", "bn": "একজন যাত্রী জানিয়েছেন, ক্লিনিকের পথে চলাচল বাধাগ্রস্ত।" }, "limit": { "en": "The report does not establish the sewage source.", "bn": "এতে পয়ঃপানির উৎস নিশ্চিত হয় না।" } },
+        { "source": "camera", "age": "6 min", "quality": "high", "text": { "en": "Permitted camera shows vehicles diverting around standing water.", "bn": "অনুমোদিত ক্যামেরায় গাড়ি জমা পানি এড়িয়ে চলছে।" }, "limit": { "en": "Underground sewer condition is invisible.", "bn": "মাটির নিচের sewer দেখা যায় না।" } },
+        { "source": "field", "age": "25 min", "quality": "medium", "text": { "en": "Ward worker reports a manhole overflow, awaiting utility confirmation.", "bn": "ওয়ার্ডকর্মী manhole overflow জানিয়েছেন; utility যাচাই বাকি।" }, "limit": { "en": "Source and safe access need specialist inspection.", "bn": "উৎস ও নিরাপদ প্রবেশ বিশেষজ্ঞকে দেখতে হবে।" } }
+      ],
+      "media": [
+        { "id": "emergency-camera", "source": "camera", "kind": "video", "preset": "water", "age": "6 min", "timeRange": "00:03–00:08", "confidence": 0.84, "box": [17, 48, 62, 31], "optionId": "access", "boost": 7, "initiallyUsed": true, "finding": { "en": "Vehicles slow and turn around water on the clinic approach.", "bn": "ক্লিনিকের পথে গাড়ি পানির কাছে ধীর হয়ে ঘুরছে।" }, "limit": { "en": "Sample clip cannot establish ambulance delay or sewage cause.", "bn": "নমুনা clip দিয়ে অ্যাম্বুলেন্সের বিলম্ব বা পয়ঃপানির কারণ নিশ্চিত হয় না।" } },
+        { "id": "emergency-field", "source": "field", "kind": "image", "preset": "drain", "age": "25 min", "timeRange": "still", "confidence": 0.75, "box": [25, 45, 46, 39], "optionId": "sewer", "boost": 5, "initiallyUsed": true, "finding": { "en": "A manhole overflow may be affecting the road.", "bn": "manhole overflow রাস্তার সমস্যার সঙ্গে যুক্ত হতে পারে।" }, "limit": { "en": "A sewer engineer must confirm the source and safe response.", "bn": "sewer প্রকৌশলী উৎস ও নিরাপদ ব্যবস্থা নিশ্চিত করবেন।" } },
+        { "id": "emergency-citizen", "source": "citizen", "kind": "image", "preset": "mixed", "age": "18 min", "timeRange": "still", "confidence": 0.61, "box": [12, 38, 70, 47], "optionId": "access", "boost": 2, "initiallyUsed": false, "finding": { "en": "A resident image suggests the road is narrowing.", "bn": "নাগরিকের ছবিতে রাস্তা সরু হওয়ার ইঙ্গিত।" }, "limit": { "en": "The image location needs checking before dispatch.", "bn": "কাজ দেওয়ার আগে ছবির অবস্থান যাচাই দরকার।" } }
+      ],
+      "duplicate": { "en": "Link the road report and overflow observation, but keep both source records and ask the utility to confirm the cause.", "bn": "রাস্তা বন্ধের খবর ও overflow পর্যবেক্ষণ যুক্ত করুন, তবে দুটি উৎস রাখুন এবং utility দিয়ে কারণ নিশ্চিত করুন।" },
+      "assetPath": ["Clinic approach R-04", "Manhole S-12", "Trunk sewer S-13", "Pump outlet P-02"],
+      "map": {
+        "label": { "en": "Illustrative clinic access and sewer map", "bn": "নমুনা ক্লিনিক পথ ও sewer মানচিত্র" },
+        "buildings": [[8, 8, 25, 21], [45, 8, 22, 21], [76, 8, 16, 21], [8, 77, 24, 15], [46, 77, 22, 15], [77, 77, 15, 15]],
+        "roads": [[[0, 43], [100, 43]], [[0, 68], [100, 68]], [[36, 0], [36, 100]], [[71, 0], [71, 100]]],
+        "drains": [
+          { "id": "S-12 → S-13", "points": [[26, 61], [55, 61]] },
+          { "id": "S-13 → P-02", "points": [[55, 61], [83, 61]] }
+        ],
+        "assets": [
+          { "id": "R-04", "x": 35, "y": 43, "kind": "road", "label": { "en": "Clinic approach", "bn": "ক্লিনিকের পথ" }, "downstream": "S-12", "taskIndex": 0 },
+          { "id": "S-12", "x": 26, "y": 61, "kind": "sewer", "label": { "en": "Overflowing manhole", "bn": "উপচে পড়া manhole" }, "downstream": "S-13", "taskIndex": 2 },
+          { "id": "S-13", "x": 55, "y": 61, "kind": "sewer", "label": { "en": "Trunk sewer", "bn": "প্রধান sewer" }, "downstream": "P-02", "taskIndex": 2 },
+          { "id": "P-02", "x": 83, "y": 61, "kind": "outlet", "label": { "en": "Pump outlet", "bn": "pump outlet" }, "downstream": "—", "taskIndex": 2 }
+        ],
+        "cameras": [[48, 38]],
+        "blindSpot": { "polygon": [[18, 53], [86, 53], [86, 70], [18, 70]], "label": { "en": "Underground sewer and pump condition", "bn": "মাটির নিচের sewer ও pump-এর অবস্থা" }, "reason": { "en": "A road camera sees the disruption, not the underground cause. Request a utility inspection before claiming the sewer is blocked.", "bn": "রাস্তার ক্যামেরায় বাধা দেখা যায়, নিচের কারণ নয়। sewer বন্ধ বলার আগে utility পরীক্ষা চাইুন।" }, "taskIndex": 2 },
+        "survey": {
+          "polygon": [[12, 34], [90, 34], [90, 74], [12, 74]],
+          "route": [[16, 39], [86, 39], [86, 51], [16, 51], [16, 66], [86, 66]],
+          "launch": [16, 39],
+          "scope": { "en": "Optional overhead road-access view; sewer inspection remains a ground task", "bn": "ঐচ্ছিক ওপর থেকে রাস্তার পথ দেখা; sewer পরীক্ষা মাঠের কাজ" },
+          "permission": { "en": "Flight, property and privacy approval required; use the field team if unsuitable", "bn": "উড্ডয়ন, সম্পত্তি ও privacy অনুমতি দরকার; অনুপযুক্ত হলে মাঠদল" }
+        }
+      },
+      "hypothesis": { "en": "The manhole overflow may be constricting emergency access; the sewer restriction remains unconfirmed.", "bn": "manhole overflow জরুরি পথ সরু করতে পারে; sewer-এর বাধা এখনও নিশ্চিত নয়।" },
+      "reason": { "en": "The road impact is visible from several sources, while the underground cause needs a utility check. Protect access before major repair decisions.", "bn": "কয়েক উৎসে রাস্তার প্রভাব দেখা যায়, কিন্তু নিচের কারণ utility পরীক্ষা ছাড়া বোঝা যায় না। বড় মেরামতের আগে চলাচল রক্ষা করুন।" },
+      "fieldCheck": { "en": "Traffic officer confirms a safe route; sewer specialist checks the manhole and pump outlet with appropriate protection.", "bn": "ট্রাফিক কর্মকর্তা নিরাপদ পথ নিশ্চিত করেন; sewer বিশেষজ্ঞ সুরক্ষাসহ manhole ও pump outlet দেখেন।" },
+      "options": [
+        { "id": "access", "title": { "en": "Protect clinic access first", "bn": "আগে ক্লিনিকের পথ নিরাপদ" }, "reach": 5, "safety": 5, "recurrence": 3, "access": 4, "why": { "en": "Keeps essential trips moving while the source is checked.", "bn": "উৎস পরীক্ষার মাঝেও জরুরি যাতায়াত চালু রাখে।" } },
+        { "id": "sewer", "title": { "en": "Inspect S-12 and S-13", "bn": "S-12 ও S-13 পরীক্ষা" }, "reach": 4, "safety": 4, "recurrence": 5, "access": 2, "why": { "en": "Can reveal a lasting cause; trained crew and safe access required.", "bn": "স্থায়ী কারণ জানা যেতে পারে; প্রশিক্ষিত দল ও নিরাপদ প্রবেশ দরকার।" } },
+        { "id": "pump", "title": { "en": "Check pump outlet P-02", "bn": "P-02 pump outlet দেখুন" }, "reach": 3, "safety": 3, "recurrence": 4, "access": 2, "why": { "en": "Tests a downstream restriction after utility ownership is confirmed.", "bn": "utility-এর দায়িত্ব নিশ্চিত হলে নিচের বাধা পরীক্ষা করে।" } }
+      ],
+      "owner": { "en": "Ward emergency access coordinator", "bn": "ওয়ার্ড জরুরি চলাচল সমন্বয়কারী" },
+      "coordination": { "external": [
+        { "who": { "en": "Clinic operations desk", "bn": "ক্লিনিক পরিচালনা ডেস্ক" }, "action": { "en": "Confirm essential access needs and a temporary route.", "bn": "জরুরি যাতায়াতের প্রয়োজন ও সাময়িক পথ নিশ্চিত।" } },
+        { "who": { "en": "Sewer utility and traffic control", "bn": "sewer utility ও ট্রাফিক নিয়ন্ত্রণ" }, "action": { "en": "Confirm source ownership, protected inspection and safe diversion.", "bn": "উৎসের দায়িত্ব, সুরক্ষিত পরীক্ষা ও নিরাপদ বিকল্প পথ নিশ্চিত।" } }
+      ], "escalation": { "en": "If clinic access narrows further, control room coordinates clinic, traffic and utility leads; first responders retain command of any crash or fire.", "bn": "ক্লিনিকের পথ আরও সরু হলে control room ক্লিনিক, ট্রাফিক ও utility নেতৃত্বকে সমন্বয় করে; দুর্ঘটনা বা আগুনে first responder-রাই ঘটনাস্থলের নেতৃত্বে থাকেন।" }, "publicUpdate": { "en": "The clinic approach is being protected while the overflow source is checked. Follow the confirmed diversion; do not enter the affected water.", "bn": "overflow-এর উৎস পরীক্ষার সময়ে ক্লিনিকের পথ নিরাপদ রাখা হচ্ছে। নিশ্চিত বিকল্প পথ ব্যবহার করুন; আক্রান্ত পানিতে নামবেন না।" } },
+      "route": { "en": "Clinic entrance → safe traffic lane → S-12 → S-13 → P-02", "bn": "ক্লিনিক প্রবেশপথ → নিরাপদ গাড়ির লেন → S-12 → S-13 → P-02" },
+      "resources": { "en": "Traffic officer, barriers, sanitation crew, protected sewer team and clinic contact", "bn": "ট্রাফিক কর্মকর্তা, ব্যারিয়ার, পরিচ্ছন্নতা দল, সুরক্ষিত sewer দল ও ক্লিনিক যোগাযোগ" },
+      "capacity": { "taskIndex": 0, "resource": { "en": "Traffic officer and barriers", "bn": "ট্রাফিক কর্মকর্তা ও ব্যারিয়ার" }, "whenMissing": { "en": "Do not open a vehicle lane through sewage without traffic control. Call the control room for a safe diversion.", "bn": "ট্রাফিক নিয়ন্ত্রণ ছাড়া পয়ঃপানির ওপর দিয়ে গাড়ির লেন খুলবেন না। নিরাপদ বিকল্প পথের জন্য control room-এ জানান।" }, "fallback": { "en": "Coordinate a temporary route with the clinic while the sewer team investigates away from traffic.", "bn": "sewer দল রাস্তা থেকে আলাদা হয়ে পরীক্ষা করার সময়ে ক্লিনিকের সঙ্গে সাময়িক পথ ঠিক করুন।" } },
+      "watch": { "trigger": { "en": "Next peak clinic arrival period", "bn": "ক্লিনিকে পরের ব্যস্ত সময়ে" }, "location": { "en": "R-04 road and S-12 manhole", "bn": "R-04 রাস্তা ও S-12 manhole" }, "reason": { "en": "A reopened road is not a resolved sewer; check both safe access and repeat overflow.", "bn": "রাস্তা খুললেই sewer ঠিক হয়েছে বলা যায় না; চলাচল ও আবার overflow দুটোই দেখুন।" }, "taskIndex": 2 },
+      "responseModes": [
+        {
+          "id": "crash", "label": { "en": "Road crash near the clinic", "bn": "ক্লিনিকের কাছে সড়ক দুর্ঘটনা" },
+          "lead": { "en": "Police and ambulance incident lead", "bn": "পুলিশ ও অ্যাম্বুলেন্সের ঘটনাস্থল নেতৃত্ব" },
+          "sceneRule": { "en": "Do not move injured people or clear the scene from a camera view. First responders control rescue and traffic safety.", "bn": "ক্যামেরা দেখে আহত ব্যক্তিকে সরানো বা ঘটনাস্থল খালি করা নয়। উদ্ধার ও ট্রাফিক নিরাপত্তা first responder-দের দায়িত্ব।" },
+          "safeRoute": { "en": "Keep the clinic entrance and one responder lane available; confirm the actual route with police.", "bn": "ক্লিনিকের প্রবেশপথ ও responder-এর একটি লেন খোলা রাখুন; প্রকৃত পথ পুলিশ দিয়ে নিশ্চিত করুন।" },
+          "cityRole": { "en": "DNCC shares the road map, moves its own crews out of the responder lane and prepares cleanup only after scene release.", "bn": "DNCC রাস্তার মানচিত্র দেয়, নিজের দলকে responder lane থেকে সরায় এবং ঘটনাস্থল ছাড়ার পরে পরিষ্কারের প্রস্তুতি নেয়।" },
+          "escalation": { "en": "If an essential unit has not acknowledged, the control-room officer calls the official emergency channel and records the handoff.", "bn": "জরুরি unit সাড়া না দিলে control-room কর্মকর্তা নির্ধারিত জরুরি চ্যানেলে যোগাযোগ করে handoff নথিভুক্ত করেন।" },
+          "units": [
+            { "id": "police", "name": { "en": "Traffic police", "bn": "ট্রাফিক পুলিশ" }, "action": { "en": "Secure the scene and confirm diversion.", "bn": "ঘটনাস্থল নিরাপদ করে বিকল্প পথ নিশ্চিত।" } },
+            { "id": "ambulance", "name": { "en": "Ambulance/medical", "bn": "অ্যাম্বুলেন্স/চিকিৎসা" }, "action": { "en": "Assess and transport casualties.", "bn": "আহতদের পরীক্ষা ও পরিবহন।" } },
+            { "id": "dncc", "name": { "en": "DNCC road crew", "bn": "DNCC সড়ক দল" }, "action": { "en": "Share access map and wait for scene release.", "bn": "প্রবেশের মানচিত্র দিয়ে ঘটনাস্থল ছাড়ার অপেক্ষা।" } }
+          ]
+        },
+        {
+          "id": "fire", "label": { "en": "Fire at the market approach", "bn": "বাজারের পথে অগ্নিকাণ্ড" },
+          "lead": { "en": "Fire Service incident commander", "bn": "ফায়ার সার্ভিসের ঘটনাস্থল কমান্ডার" },
+          "sceneRule": { "en": "Fire Service sets the exclusion area and rescue plan. A camera cue cannot confirm a safe building or safe air.", "bn": "ফায়ার সার্ভিস নিরাপত্তা সীমা ও উদ্ধার পরিকল্পনা ঠিক করে। ক্যামেরা দেখে ভবন বা বাতাস নিরাপদ বলা যায় না।" },
+          "safeRoute": { "en": "Reserve appliance access and a water-supply route; police confirm the diversion.", "bn": "ফায়ার গাড়ি ও পানির সরবরাহের পথ রাখুন; পুলিশ বিকল্প পথ নিশ্চিত করে।" },
+          "cityRole": { "en": "DNCC supplies hydrant/road asset information, coordinates utility isolation through owners and restores public space only after clearance.", "bn": "DNCC hydrant/রাস্তার তথ্য দেয়, মালিক utility-এর মাধ্যমে সংযোগ বিচ্ছিন্নে সমন্বয় করে এবং clearance-এর পর জনপরিসর ঠিক করে।" },
+          "escalation": { "en": "If Fire Service or utilities do not acknowledge, escalate through the official control room; do not dispatch unprotected city crews.", "bn": "ফায়ার সার্ভিস বা utility সাড়া না দিলে official control room-এ জানান; সুরক্ষা ছাড়া শহরের দল পাঠাবেন না।" },
+          "units": [
+            { "id": "fire", "name": { "en": "Fire Service", "bn": "ফায়ার সার্ভিস" }, "action": { "en": "Lead rescue, exclusion and scene clearance.", "bn": "উদ্ধার, নিরাপত্তা সীমা ও clearance-এর নেতৃত্ব।" } },
+            { "id": "police", "name": { "en": "Police/traffic", "bn": "পুলিশ/ট্রাফিক" }, "action": { "en": "Keep responder access and public diversion open.", "bn": "responder পথ ও মানুষের বিকল্প চলাচল চালু রাখা।" } },
+            { "id": "utility", "name": { "en": "Power/gas utility", "bn": "বিদ্যুৎ/গ্যাস utility" }, "action": { "en": "Confirm isolation under its own safety procedure.", "bn": "নিজস্ব নিরাপত্তা নিয়মে সংযোগ বিচ্ছিন্ন নিশ্চিত।" } },
+            { "id": "dncc", "name": { "en": "DNCC support", "bn": "DNCC সহায়তা" }, "action": { "en": "Share asset map and prepare post-clearance work.", "bn": "স্থাপনার মানচিত্র দিয়ে clearance-পরের কাজ প্রস্তুত।" } }
+          ]
+        }
+      ],
+      "tasks": [
+        { "team": { "en": "Traffic", "bn": "ট্রাফিক" }, "action": { "en": "Set barriers and keep a safe clinic access lane.", "bn": "ব্যারিয়ার দিয়ে ক্লিনিকের নিরাপদ পথ রাখুন।" } },
+        { "team": { "en": "Sanitation", "bn": "পরিচ্ছন্নতা" }, "action": { "en": "Isolate the spill and protect pedestrians during cleanup.", "bn": "পানি ঘিরে রেখে পরিষ্কারের সময় পথচারীকে সুরক্ষা দিন।" } },
+        { "team": { "en": "Sewer utility", "bn": "sewer utility" }, "action": { "en": "Inspect S-12, S-13 and P-02; repair only a confirmed cause.", "bn": "S-12, S-13 ও P-02 দেখুন; নিশ্চিত কারণেই মেরামত করুন।" } },
+        { "team": { "en": "Health", "bn": "স্বাস্থ্য" }, "action": { "en": "Advise on exposure and safe handling; record concerns.", "bn": "সংস্পর্শ ও নিরাপদ ব্যবস্থার পরামর্শ দিয়ে উদ্বেগ নথিভুক্ত করুন।" } },
+        { "team": { "en": "Ward liaison", "bn": "ওয়ার্ড সমন্বয়" }, "action": { "en": "Update the clinic and residents on access and next review.", "bn": "ক্লিনিক ও বাসিন্দাদের চলাচল এবং পরের যাচাই জানান।" } }
+      ],
+      "prevention": { "en": "Check the sewer corridor before the next heavy rain and confirm whether P-02 needs maintenance.", "bn": "পরের ভারী বৃষ্টির আগে sewer করিডর দেখুন এবং P-02 রক্ষণাবেক্ষণ দরকার কি না নিশ্চিত করুন।" },
+      "crisis": { "en": "If clinic access fails, the control room approves a safe diversion and escalates utility and traffic support immediately.", "bn": "ক্লিনিকের পথ বন্ধ হলে control room নিরাপদ বিকল্প পথ অনুমোদন করে utility ও ট্রাফিক সহায়তা দ্রুত চায়।" },
+      "verify": [
+        { "en": "Clinic access is safely passable", "bn": "ক্লিনিকের পথে নিরাপদে চলা যায়" },
+        { "en": "Sewage source and repair evidence recorded", "bn": "পয়ঃপানির উৎস ও মেরামতের প্রমাণ নথিভুক্ত" },
+        { "en": "Health and sanitation clearance checked", "bn": "স্বাস্থ্য ও পরিচ্ছন্নতার যাচাই" },
+        { "en": "Repeat overflow checked at next peak", "bn": "পরের ব্যস্ত সময়ে আবার overflow দেখা" }
+      ]
+    }
+  ],
+  "stakeholders": [
+    { "who": { "en": "DNCC and ward leads", "bn": "DNCC ও ওয়ার্ড নেতৃত্ব" }, "challenge": { "en": "Work can stall between departments.", "bn": "বিভাগের মাঝে কাজ আটকে যেতে পারে।" }, "response": { "en": "Name one case owner, task owners and an escalation path.", "bn": "একজন case owner, প্রতিটি কাজের owner ও escalation পথ নির্ধারণ।" } },
+    { "who": { "en": "Crews and engineers", "bn": "মাঠদল ও প্রকৌশলী" }, "challenge": { "en": "Maps and images can miss the real cause.", "bn": "মানচিত্র ও ছবিতে প্রকৃত কারণ বাদ পড়তে পারে।" }, "response": { "en": "Site checks, approved map corrections and offline updates.", "bn": "মাঠ যাচাই, অনুমোদিত মানচিত্র সংশোধন ও offline update।" } },
+    { "who": { "en": "Camera and drone owners", "bn": "ক্যামেরা ও ড্রোনের মালিক" }, "challenge": { "en": "Permissions, blind spots and feed failure limit coverage.", "bn": "অনুমতি, আড়াল ও feed বন্ধ থাকলে coverage কমে।" }, "response": { "en": "Agreed access and retention; use field reports when feeds fail.", "bn": "প্রবেশ ও সংরক্ষণের চুক্তি; feed না থাকলে মাঠের প্রতিবেদন।" } },
+    { "who": { "en": "ICT, health and community", "bn": "ICT, স্বাস্থ্য ও স্থানীয় মানুষ" }, "challenge": { "en": "False alerts, privacy and trust need care.", "bn": "ভুল সংকেত, গোপনীয়তা ও আস্থার বিষয় আছে।" }, "response": { "en": "Source checks, human approval, role access, audit and feedback.", "bn": "উৎস যাচাই, মানুষের অনুমোদন, role access, audit ও মতামত।" } }
+  ]
+}

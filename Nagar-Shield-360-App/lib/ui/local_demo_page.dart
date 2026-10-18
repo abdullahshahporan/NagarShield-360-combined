@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../nagar_repository.dart';
 import 'notice.dart';
+import 'operations_lab.dart';
 
 class LocalDemoPage extends StatefulWidget {
   const LocalDemoPage({
@@ -60,6 +61,26 @@ class _LocalDemoPageState extends State<LocalDemoPage> {
       padding: const EdgeInsets.all(16),
       children: [
         const Notice('LOCAL PRESENTATION DATA · SIMULATED'),
+        Card(
+          child: ListTile(
+            leading: const Icon(Icons.hub_outlined),
+            title: Text(widget.bangla
+                ? 'সমন্বিত সিটি অপারেশন দেখুন'
+                : 'Explore connected city operations'),
+            subtitle: Text(widget.bangla
+                ? 'তিনটি নমুনা সমস্যা: খবর, অগ্রাধিকার, mission, যাচাই'
+                : 'Three seeded cases: signals, priority, mission and verification'),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
+              builder: (_) => Scaffold(
+                appBar: AppBar(title: Text(widget.bangla
+                    ? 'সমন্বিত অপারেশন'
+                    : 'City operations')),
+                body: OperationsLab(bangla: widget.bangla),
+              ),
+            )),
+          ),
+        ),
         if (error != null) Notice(error!),
         if (state == null)
           const Center(child: CircularProgressIndicator())
