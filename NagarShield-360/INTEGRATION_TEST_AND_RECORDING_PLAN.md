@@ -22,6 +22,7 @@
 | --- | --- | --- |
 | Shared schema and permissions | `npm run test:migration` in web | Clean migration order, mobile citizen ownership, web review, role scope, reset preservation, and state transitions pass. |
 | Web compilation | `npm run typecheck` and `npm run build` in web | Both exit 0. |
+| Unified operations rehearsal | Compare SHA-256 of both `operations-seed.json` files, run the mobile `operations_lab_test.dart`, and walk through private web `/operations` at desktop and phone widths | Four cases match; map trace and blind-spot inspection work; reviewed evidence changes an explained score; missing resources block the affected assignment; survey completion requires its permission checkbox. |
 | Flutter static and widget checks | `flutter analyze` and `flutter test` in app | Both exit 0; save summary, not secrets. |
 | Mobile SQL retry and ownership | `node scripts/check_mobile_extension.mjs` in app | Extension, ownership, idempotency and reset pass. |
 | Browser layout | `npm run test:layout` and `npm run test:official-layout` with local server | Landing and official screens render at desktop and phone sizes with no horizontal overflow. |
@@ -69,6 +70,7 @@ Also test wrong password, expired session, a stale approval after another manage
 5. **Survey:** record one GapScan and one drone observation in Flutter, with source, site/time, permission reference where relevant, manual annotation and private media. Find them on web **জরিপ** and in authorized review queue. State that no drone flight or model inference occurs.
 6. **Media and localization:** all six presets, two videos, imported image/MP4, manual box/polygon/timed annotations; check simulated labels. Repeat critical labels and forms in Bangla and English, at 390×844 and 320×700. Deny camera/location permission and use gallery/manual coordinates.
 7. **Reset isolation:** with a citizen report and a real mobile survey in place, use web demo reset. Seeded scenarios return to baseline; citizen/survey test records and their incident/task history remain. Never reset during the main recording.
+8. **Unified operations rehearsal:** in both web `/operations` and mobile **City Operations**, select the market case. Trace a connected asset path, choose a point and open its suggested task. Review CCTV age, blind spot and confidence; accept or reject the evidence and show the score explanation change. Mark sample flight permission before completing the sample survey. Remove a required resource and show that the affected assignment is blocked while an alternative plan appears. Record a partner blocker, preview the citizen update, finish the submitted work and schedule a repeat check. Use the alley case for building-gap and roof-garden inspections without claiming larvae from imagery; the footpath case for obstruction moving to the next road; and the clinic-road case for sewage, blocked emergency access, and crash/fire responder handoff. Explain that acknowledgements, clearance, maps, detections and assignments here are seeded local rehearsal data.
 
 ## Screen recording: 7 to 8 minutes
 
@@ -88,6 +90,10 @@ Record at 1080p/30 fps if available; use a desktop capture for web and a mirrore
 | 7:20–7:50 | Signed-out browser access proof / close | Protected URL blocked, then one-slide recap: shared traceable workflow, role scope, offline retry, honest prototype limits. |
 
 Capture sign-ins separately with recording paused. Prefer a continuous workflow take; if cuts are needed, use a small transition caption with role and code. Do not splice different report codes into one story. Keep an unedited full rehearsal as backup and export a short version only after all gates pass.
+
+### Optional two-minute product-vision cutaway
+
+If the judging format permits a longer demo or a separate clip, show the unified operations screen after the real shared workflow. Spend about 20 seconds tracing the drain/footpath/sewer map and camera blind area, 20 seconds on approved drone survey and roof/gap access, 20 seconds reviewing CCTV evidence and the explainable priority, 25 seconds on equipment constraints and partner blockers, 25 seconds switching crash/fire leads and showing responder acknowledgement versus scene clearance, and 10 seconds on repeat checks. Put **“seeded planning prototype”** on screen throughout. This demonstrates the next product direction without implying live footage, drone flight, AI inference or real emergency dispatch is connected.
 
 ## Submission package and stop conditions
 

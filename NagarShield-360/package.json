@@ -12,6 +12,7 @@
     "test:migration": "node scripts/check-migration.mjs",
     "test:layout": "node scripts/check-layout.mjs",
     "test:official-layout": "node scripts/check-official-layout.mjs",
+    "test:operations-demo": "node scripts/check-operations-demo.mjs",
     "test:web-boundary": "node scripts/check-web-boundary.mjs"
   },
   "dependencies": {

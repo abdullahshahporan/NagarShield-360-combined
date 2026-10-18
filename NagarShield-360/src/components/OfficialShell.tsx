@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Activity, Bell, ChartNoAxesCombined, ClipboardList, FileScan, LayoutDashboard, LogOut, MapPinned, ShieldCheck, ScanSearch, UsersRound } from 'lucide-react'
+import { Activity, Bell, ChartNoAxesCombined, ClipboardList, FileScan, LayoutDashboard, LogOut, MapPinned, ShieldCheck, ScanSearch, UsersRound, Workflow } from 'lucide-react'
 import { signOut } from '@/app/actions/auth'
 import { roleLabels } from '@/src/lib/demo'
 import type { OfficialProfile } from '@/src/lib/types'
@@ -7,6 +7,7 @@ import type { OfficialProfile } from '@/src/lib/types'
 const nav = [
   { href: '/dashboard', label: 'সারসংক্ষেপ', Icon: LayoutDashboard },
   { href: '/map', label: 'কমান্ড মানচিত্র', Icon: MapPinned },
+  { href: '/operations', label: 'সমন্বিত অপারেশন', Icon: Workflow },
   { href: '/incidents', label: 'ঘটনা ও যাচাই', Icon: Activity },
   { href: '/analysis', label: 'মিডিয়া বিশ্লেষণ', Icon: FileScan },
   { href: '/surveys', label: 'ড্রোন ও সংকীর্ণ স্থান', Icon: ScanSearch },
@@ -17,7 +18,7 @@ const nav = [
 
 export function OfficialShell({ profile, notifications, children }: { profile: OfficialProfile; notifications: { id: number; text_bn: string }[]; children: React.ReactNode }) {
   const links = profile.role === 'survey_operator' ? nav.filter(item => item.href === '/surveys')
-    : profile.role === 'field_employee' ? nav.filter(item => ['/dashboard','/tasks','/incidents'].includes(item.href))
+    : profile.role === 'field_employee' ? nav.filter(item => ['/dashboard','/tasks','/incidents','/operations'].includes(item.href))
     : profile.role === 'supervisor' ? nav.filter(item => !['/governance','/analysis','/surveys'].includes(item.href)) : nav
   return <div className="official-app">
     <aside className="official-sidebar">
