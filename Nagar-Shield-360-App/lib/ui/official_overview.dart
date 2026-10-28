@@ -180,8 +180,8 @@ class _OfficialOverviewState extends State<OfficialOverview> {
             icon: Icons.hub_outlined,
             title: t('Connected city operations', 'সমন্বিত সিটি অপারেশন'),
             detail: t(
-              'Explore three seeded cases from signals to verified results.',
-              'তিনটি নমুনা ঘটনায় খবর থেকে ফল যাচাই পর্যন্ত দেখুন।',
+              'Explore four seeded cases from signals to verified results.',
+              'চারটি নমুনা ঘটনায় খবর থেকে ফল যাচাই পর্যন্ত দেখুন।',
             ),
             onTap: () => widget.onNavigate('operations'),
           ),

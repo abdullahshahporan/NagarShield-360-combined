@@ -429,6 +429,21 @@ class NagarRepository {
     return rows.cast<RowData>();
   }
 
+  Future<List<RowData>> notifications() async {
+    if (client == null || client!.auth.currentUser == null) return [];
+    try {
+      final rows = await client!
+          .from('notifications')
+          .select('id,incident_id,text_bn,created_at')
+          .eq('recipient_id', client!.auth.currentUser!.id)
+          .order('created_at', ascending: false)
+          .limit(5);
+      return rows.cast<RowData>();
+    } catch (_) {
+      return [];
+    }
+  }
+
   Future<List<RowData>> staffDirectory() async {
     if (client == null) return [];
     final rows = await client!

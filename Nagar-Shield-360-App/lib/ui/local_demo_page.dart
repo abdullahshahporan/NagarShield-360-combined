@@ -68,8 +68,8 @@ class _LocalDemoPageState extends State<LocalDemoPage> {
                 ? 'সমন্বিত সিটি অপারেশন দেখুন'
                 : 'Explore connected city operations'),
             subtitle: Text(widget.bangla
-                ? 'তিনটি নমুনা সমস্যা: খবর, অগ্রাধিকার, mission, যাচাই'
-                : 'Three seeded cases: signals, priority, mission and verification'),
+                ? 'চারটি নমুনা সমস্যা: খবর, অগ্রাধিকার, কাজ, যাচাই'
+                : 'Four seeded cases: signals, priority, tasks and verification'),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
             onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
               builder: (_) => Scaffold(

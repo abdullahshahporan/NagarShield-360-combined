@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../nagar_repository.dart';
@@ -21,17 +23,34 @@ class OfficialTaskList extends StatefulWidget {
 }
 
 class _OfficialTaskListState extends State<OfficialTaskList> {
-  late final Future<List<List<RowData>>> data;
+  late Future<List<List<RowData>>> data;
+  Timer? notificationTimer;
   String filter = 'active';
   String t(String en, String bn) => widget.bangla ? bn : en;
 
   @override
   void initState() {
     super.initState();
+    _load();
+    if (widget.profile['role'] == 'field_employee') {
+      notificationTimer = Timer.periodic(const Duration(seconds: 12), (_) {
+        if (mounted) setState(_load);
+      });
+    }
+  }
+
+  void _load() {
     data = Future.wait([
       widget.repository.tasks(),
       widget.repository.staffDirectory(),
+      widget.repository.notifications(),
     ]);
+  }
+
+  @override
+  void dispose() {
+    notificationTimer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -43,6 +62,7 @@ class _OfficialTaskListState extends State<OfficialTaskList> {
         return const Center(child: CircularProgressIndicator());
       }
       final tasks = snapshot.data![0];
+      final notifications = snapshot.data![2];
       final names = {
         for (final row in snapshot.data![1])
           row['id'].toString(): row['display_name'].toString(),
@@ -84,6 +104,26 @@ class _OfficialTaskListState extends State<OfficialTaskList> {
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(height: 14),
+          if (notifications.isNotEmpty) ...[
+            Text(
+              t('Assignment notifications', 'কাজের বিজ্ঞপ্তি'),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            const SizedBox(height: 6),
+            for (final notification in notifications.take(2))
+              Card(
+                color: const Color(0xFFE6F4E8),
+                child: ListTile(
+                  leading: const Icon(Icons.notifications_active_outlined),
+                  title: Text(t('New field assignment', notification['text_bn']?.toString() ?? 'নতুন দায়িত্ব দেওয়া হয়েছে')),
+                  subtitle: Text(t('Open the related incident', 'সংশ্লিষ্ট ঘটনা ও চিহ্নিত জায়গা দেখুন')),
+                  onTap: () => widget.onOpenIncident(notification['incident_id'].toString()),
+                ),
+              ),
+            const SizedBox(height: 10),
+          ],
           SegmentedButton<String>(
             showSelectedIcon: false,
             segments: [

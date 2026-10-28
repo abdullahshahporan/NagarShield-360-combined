@@ -17,7 +17,7 @@ Flutter client for the existing NagarShield 360 Supabase project. Flutter code, 
 - lib/ui/official_pages.dart: role-aware navigation, incident review, map, and governance.
 - lib/ui/operations_lab.dart: local, bilingual connected-operations rehearsal from shared dummy seed; also available from the offline Local Demo entry.
 - lib/ui/operations_map.dart: interactive schematic ward/drain map, asset selection and sample drone survey route.
-- lib/ui/official_overview.dart, official_task_list.dart, official_report_view.dart: shared-data dashboard, assigned work, and reports.
+- lib/ui/official_overview.dart, official_task_list.dart, official_report_view.dart: shared-data dashboard, assigned work, in-app assignment notices, and reports. The field task view checks for new work every 12 seconds while open; this is not a phone push notification.
 - lib/ui/incident_detail.dart, observation_review_card.dart, private_evidence_preview.dart, workflow_labels.dart: named assignment, evidence, review, audit, and Bangla/English workflow labels.
 - lib/ui/public_status_card.dart: citizen report progress.
 - lib/ui/media_studio.dart, annotation_editor.dart, and preset_media.dart: simulated presets, playback, and locally saved imported media with normalized manual boxes and video time ranges.
