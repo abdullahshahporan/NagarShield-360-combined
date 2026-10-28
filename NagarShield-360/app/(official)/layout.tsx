@@ -2,6 +2,7 @@ import { requireOfficial } from '@/src/lib/supabase/server'
 import { OfficialShell } from '@/src/components/OfficialShell'
 import 'leaflet/dist/leaflet.css'
 import '../official.css'
+import '../monitor.css'
 
 export const dynamic = 'force-dynamic'
 

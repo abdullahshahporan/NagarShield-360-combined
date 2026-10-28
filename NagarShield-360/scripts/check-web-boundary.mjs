@@ -13,7 +13,7 @@ const browser = await chromium.launch({
 try {
   const context = await browser.newContext()
   const page = await context.newPage()
-  for (const path of ['/dashboard','/incidents','/reports','/surveys']) {
+  for (const path of ['/dashboard','/operations','/incidents','/reports','/surveys']) {
     await page.goto(`${base}${path}`, { waitUntil: 'domcontentloaded' })
     assert.equal(new URL(page.url()).pathname,'/',`${path} exposed to signed-out browser`)
   }

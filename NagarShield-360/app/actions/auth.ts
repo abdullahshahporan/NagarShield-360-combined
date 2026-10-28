@@ -9,11 +9,19 @@ export async function signIn(formData: FormData) {
   const password = String(formData.get('password') || '')
   if (!email || !password) redirect('/?auth=missing#signin')
   const supabase = await supabaseServer()
-  const { error } = await supabase.auth.signInWithPassword({ email, password })
-  if (error) redirect('/?auth=invalid#signin')
-  const { data: { user } } = await supabase.auth.getUser()
-  const profile = user ? await supabase.from('profiles').select('role').eq('id', user.id).maybeSingle() : null
-  if (!profile?.data || !['executive','department_head','supervisor','field_employee','survey_operator'].includes(profile.data.role)) {
+  let signInResult
+  try {
+    signInResult = await supabase.auth.signInWithPassword({ email, password })
+  } catch {
+    redirect('/?auth=unavailable#signin')
+  }
+  if (signInResult.error) redirect(signInResult.error.status === 0 ? '/?auth=unavailable#signin' : '/?auth=invalid#signin')
+  const { data: { user }, error: userError } = await supabase.auth.getUser()
+  if (userError) redirect('/?auth=unavailable#signin')
+  if (!user) redirect('/?auth=invalid#signin')
+  const profile = await supabase.from('profiles').select('role').eq('id', user.id).maybeSingle()
+  if (profile.error) redirect('/?auth=unavailable#signin')
+  if (!profile.data || !['executive','department_head','supervisor','field_employee','survey_operator'].includes(profile.data.role)) {
     await supabase.auth.signOut()
     redirect('/?auth=denied#signin')
   }

@@ -6,10 +6,10 @@ import type { OfficialProfile } from '@/src/lib/types'
 
 const nav = [
   { href: '/dashboard', label: 'সারসংক্ষেপ', Icon: LayoutDashboard },
+  { href: '/incidents', label: 'ঘটনা ও যাচাই', Icon: Activity },
   { href: '/map', label: 'কমান্ড মানচিত্র', Icon: MapPinned },
   { href: '/operations', label: 'সমন্বিত অপারেশন', Icon: Workflow },
-  { href: '/incidents', label: 'ঘটনা ও যাচাই', Icon: Activity },
-  { href: '/analysis', label: 'মিডিয়া বিশ্লেষণ', Icon: FileScan },
+  { href: '/analysis', label: 'রিয়েলটাইম অ্যানালাইসিস', Icon: FileScan },
   { href: '/surveys', label: 'ড্রোন ও সংকীর্ণ স্থান', Icon: ScanSearch },
   { href: '/tasks', label: 'কাজের তালিকা', Icon: ClipboardList },
   { href: '/reports', label: 'প্রতিবেদন', Icon: ChartNoAxesCombined },
