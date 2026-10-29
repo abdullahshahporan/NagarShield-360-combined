@@ -32,7 +32,7 @@ Flutter client for the existing NagarShield 360 Supabase project. Flutter code, 
 
 ## Supabase and demo identities
 
-For a fresh shared project, apply the web base and reset hotfix, both app SQL extensions, then the web survey and Bangla copy migrations. Check migration history on an existing project before changing it. The combined local migration test exercises this order.
+For a fresh shared project, apply the web base and reset hotfix, both app SQL extensions, then the web survey, Bangla copy, and marked-footage assignment migrations. The current shared demo project already received `NagarShield-360/supabase/migrations/202610290001_marked_footage_assignment.sql` on 29 October 2026. Do not rerun it, the base migration, or reset the demo data. The combined local migration test exercises this order.
 
 The existing web migrations and both app SQL extensions have been applied to the shared project. The project currently has anonymous Auth disabled. For this prototype, three public demo Auth accounts (A, B, C) are provisioned. There is **one app build** for all devices. On first entry to the public form, choose A, B, or C for that installation; choose different letters on different test phones. There is no public password form. A selected letter is stored on the phone and cannot be changed through the app. Anyone who chooses the same letter shares that demo account and report history. This is for controlled demonstration only, not private public distribution.
 

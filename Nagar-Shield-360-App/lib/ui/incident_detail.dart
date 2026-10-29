@@ -23,7 +23,7 @@ class IncidentDetail extends StatefulWidget {
 }
 
 class _IncidentDetailState extends State<IncidentDetail> {
-  late Future<(RowData, List<RowData>, List<RowData>, List<RowData>)> data;
+  late Future<(RowData, List<RowData>, List<RowData>, List<RowData>, List<RowData>)> data;
   String t(String en, String bn) => widget.bangla ? bn : en;
 
   @override
@@ -37,7 +37,7 @@ class _IncidentDetailState extends State<IncidentDetail> {
     setState(() {});
   }
 
-  Future<(RowData, List<RowData>, List<RowData>, List<RowData>)> _load() async {
+  Future<(RowData, List<RowData>, List<RowData>, List<RowData>, List<RowData>)> _load() async {
     final incident = await widget.repository.client!
         .from('incidents')
         .select()
@@ -49,7 +49,12 @@ class _IncidentDetailState extends State<IncidentDetail> {
         .eq('incident_id', widget.id);
     final events = await widget.repository.events(widget.id);
     final staff = await widget.repository.staffDirectory();
-    return (incident, tasks.cast<RowData>(), events, staff);
+    final evidence = await widget.repository.client!
+        .from('media_assets')
+        .select('task_id,storage_key')
+        .eq('incident_id', widget.id)
+        .eq('stage', 'before');
+    return (incident, tasks.cast<RowData>(), events, staff, evidence.cast<RowData>());
   }
 
   Future<void> _action(
@@ -368,7 +373,7 @@ class _IncidentDetailState extends State<IncidentDetail> {
                 : Text(snapshot.error.toString()),
           );
         }
-        final (incident, tasks, events, staff) = snapshot.data!;
+        final (incident, tasks, events, staff, markedEvidence) = snapshot.data!;
         final names = {
           for (final person in staff)
             person['id'].toString(): person['display_name'].toString(),
@@ -502,6 +507,21 @@ class _IncidentDetailState extends State<IncidentDetail> {
                             task['note']?.toString() ??
                             '',
                       ),
+                      for (final frame in markedEvidence.where(
+                        (item) => item['task_id'] == task['id'],
+                      ))
+                        Padding(
+                          padding: const EdgeInsets.only(top: 12),
+                          child: PrivateEvidencePreview(
+                            repository: widget.repository,
+                            storageKey: frame['storage_key'].toString(),
+                            label: t(
+                              'Marked screenshot for this task',
+                              'এই কাজের চিহ্নিত স্ক্রিনশট',
+                            ),
+                            bangla: widget.bangla,
+                          ),
+                        ),
                       if (role == 'field_employee' &&
                           task['assignee_id'] == widget.profile['id'])
                         Wrap(
