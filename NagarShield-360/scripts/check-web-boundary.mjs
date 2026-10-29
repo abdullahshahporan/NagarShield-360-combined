@@ -13,11 +13,11 @@ const browser = await chromium.launch({
 try {
   const context = await browser.newContext()
   const page = await context.newPage()
-  for (const path of ['/dashboard','/operations','/incidents','/reports','/surveys']) {
+  for (const path of ['/dashboard','/operations','/incidents','/analysis','/reports','/surveys']) {
     await page.goto(`${base}${path}`, { waitUntil: 'domcontentloaded' })
     assert.equal(new URL(page.url()).pathname,'/',`${path} exposed to signed-out browser`)
   }
-  for (const path of ['/api/reports/export','/api/media/scenarios/drain.svg']) {
+  for (const path of ['/api/reports/export','/api/media/scenarios/drain.svg','/api/demo-footage']) {
     const response = await context.request.get(`${base}${path}`)
     assert.equal(response.status(),401,`${path} exposed to signed-out browser`)
   }

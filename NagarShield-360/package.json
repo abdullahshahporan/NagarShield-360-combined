@@ -13,6 +13,7 @@
     "test:layout": "node scripts/check-layout.mjs",
     "test:official-layout": "node scripts/check-official-layout.mjs",
     "test:operations-demo": "node scripts/check-operations-demo.mjs",
+    "test:marked-footage": "node scripts/check-marked-footage-demo.mjs",
     "test:web-boundary": "node scripts/check-web-boundary.mjs"
   },
   "dependencies": {

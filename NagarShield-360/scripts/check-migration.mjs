@@ -36,6 +36,8 @@ const surveyMigration = await readFile(new URL('../supabase/migrations/202610140
 await db.exec(surveyMigration)
 const copyMigration = await readFile(new URL('../supabase/migrations/202610140002_bangla_copy.sql', import.meta.url), 'utf8')
 await db.exec(copyMigration)
+const markedFootageMigration = await readFile(new URL('../supabase/migrations/202610290001_marked_footage_assignment.sql', import.meta.url), 'utf8')
+await db.exec(markedFootageMigration)
 const demoCopy = await db.query("select summary_bn from public.scenarios where id='drain'")
 assert.equal(demoCopy.rows[0].summary_bn, 'বাজার সড়কের ড্রেনের মুখে বর্জ্য জমে আছে।')
 const count = await db.query('select count(*)::int as count from public.incidents')
@@ -135,6 +137,23 @@ await asUser(executiveId, async () => {
   await db.query("select public.perform_demo_action('assign_task',$1,$2)",[newIncident,JSON.stringify({department_id:'waste',assignee_id:wasteId,team_id:'waste-a'})])
 })
 const multiTasks=await db.query('select id,department_id from public.tasks where incident_id=$1',[newIncident])
+const markedKey=`task/${executiveId}/20000000-0000-4000-8000-000000000001.jpg`
+await db.query("insert into storage.objects(bucket_id,name) values('evidence',$1)",[markedKey])
+let markedTask
+await asUser(executiveId, async () => {
+  const assigned=await db.query('select public.assign_marked_demo_task($1,$2,$3,$4,$5,$6) as id',[
+    newIncident,'drainage','drainage-a',drainageId,'Inspect the marked canal edge',markedKey,
+  ])
+  markedTask=assigned.rows[0].id
+})
+await asUser(drainageId, async () => {
+  const assets=await db.query('select storage_key from public.media_assets where task_id=$1',[markedTask])
+  assert.equal(assets.rows[0].storage_key,markedKey)
+  const stored=await db.query('select name from storage.objects where name=$1',[markedKey])
+  assert.equal(stored.rows[0].name,markedKey)
+  const notifications=await db.query('select count(*)::int as count from public.notifications where recipient_id=$1',[drainageId])
+  assert(notifications.rows[0].count>0)
+})
 const drainageTask=multiTasks.rows.find(row=>row.department_id==='drainage').id
 await asUser(drainageId, async () => {
   await db.query("select public.perform_demo_action('acknowledge_task',$1,'{}')",[drainageTask])

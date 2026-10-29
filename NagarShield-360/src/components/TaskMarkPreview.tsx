@@ -1,6 +1,7 @@
 import { PrivateMedia } from './PrivateMedia'
 
-export function TaskMarkPreview({ note, mediaKey }: { note: string | null; mediaKey: string | null }) {
+export function TaskMarkPreview({ note, mediaKey, screenshotKey }: { note: string | null; mediaKey: string | null; screenshotKey?: string | null }) {
+  if (screenshotKey) return <figure className="task-mark-figure"><div className="task-mark-image"><PrivateMedia mediaKey={screenshotKey} alt="কর্মকর্তার চিহ্নসহ কাজের স্ক্রিনশট"/></div><figcaption>কর্মকর্তার চিহ্নিত ফ্রেম · এই কাজের সঙ্গে প্রাইভেটভাবে সংরক্ষিত</figcaption></figure>
   if (!note || !mediaKey) return null
   const match = note.match(/চিহ্নিত অংশ: বাম (\d+)%, উপর (\d+)%, প্রস্থ (\d+)%, উচ্চতা (\d+)%/)
   if (!match) return null

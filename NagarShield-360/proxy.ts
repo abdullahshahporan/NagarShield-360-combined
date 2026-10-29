@@ -28,4 +28,4 @@ export async function proxy(request: NextRequest) {
   return response
 }
 
-export const config = { matcher: ['/dashboard/:path*','/map/:path*','/operations/:path*','/incidents/:path*','/analysis/:path*','/surveys/:path*','/tasks/:path*','/reports/:path*','/governance/:path*','/api/media/:path*','/api/reports/:path*'] }
+export const config = { matcher: ['/dashboard/:path*','/map/:path*','/operations/:path*','/incidents/:path*','/analysis/:path*','/surveys/:path*','/tasks/:path*','/reports/:path*','/governance/:path*','/api/media/:path*','/api/demo-footage','/api/reports/:path*'] }
